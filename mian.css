@@ -1,0 +1,480 @@
+:root {
+    --Marine-blue: hsl(213, 96%, 18%);
+    --Purplish-blue: hsl(243, 100%, 62%);
+    --Pastel-blue: hsl(228, 100%, 84%);
+    --Light-blue: hsl(206, 94%, 87%);
+    --Strawberry-red: hsl(354, 84%, 57%);
+    --Cool-gray: hsl(231, 11%, 63%);
+    --Light-gray: hsl(229, 24%, 87%);
+    --Magnolia: hsl(217, 100%, 97%);
+    --Alabaster: hsl(231, 100%, 99%);
+    --White: hsl(0, 0%, 100%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+body {
+    margin: 0;
+    font-family: "Red Hat Text", serif;
+}
+
+.container {
+    background-color: var(--Magnolia);
+    height: 100vh;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.main {
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    width: 1000px;
+}
+
+.box1 {
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.box1 img {
+    position: relative;
+    height: 485px;
+    border-radius: 20px;
+}
+
+.box1 .info:not(:first-of-type) {
+    position: absolute;
+    top: 100px;
+}
+
+.box1 .info:first-of-type {
+    position: absolute;
+    top: 60px;
+    margin-left: 20px;
+}
+
+.box1 .info {
+    color: white;
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    border-radius: 50%;
+    border: 1px solid var(--Light-blue);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 30px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.next:hover,
+.confirm:hover {
+    background-color: var(--Purplish-blue);
+}
+
+.button.active {
+    background-color: var(--Light-blue);
+    color: black;
+}
+
+.forma {
+    font-weight: 500;
+}
+
+.forma .step {
+    color: var(--Light-gray)
+}
+
+.forma p {
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    transition: .5s;
+}
+
+input::placeholder {
+    transition: .5s;
+}
+
+input:focus::placeholder {
+    opacity: 0;
+}
+
+input:focus {
+    outline: 1px solid black;
+}
+
+.box2 {
+    margin-left: 40px;
+}
+
+.box2 .title .head {
+    margin-top: 20px;
+    font-size: 30px;
+    color: var(--Marine-blue);
+    font-weight: bold;
+}
+
+.box2 .title p {
+    color: var(--Cool-gray)
+}
+
+.box2 label {
+    color: var(--Marine-blue);
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.box2 input {
+    position: relative;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 3px;
+    border: 1px solid var(--Cool-gray);
+    width: 100%;
+    padding: 10px;
+}
+
+.box2 input:focus {
+    outline-color: #ccc;
+}
+
+.box2 input::placeholder {
+    font-weight: bold;
+    color: var(--Cool-gray)
+}
+
+
+.next,
+.confirm {
+    transition: .5s;
+    margin-left: auto;
+    padding: 15px 20px;
+    width: fit-content;
+    background-color: var(--Marine-blue);
+    color: white;
+    margin-top: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.com::after {
+    content: "complete this field";
+    position: absolute;
+    color: red;
+    top: 0px;
+    right: 0;
+    opacity: 1;
+    transition: .5s;
+}
+
+.op::after {
+    opacity: 0;
+}
+
+.requer::after {
+    content: "this field is requremend";
+    position: absolute;
+    color: red;
+    top: 0px;
+    right: 0;
+}
+
+form>div {
+    position: relative;
+}
+
+.unvalid::before {
+    content: "this field is unvalid";
+    position: absolute;
+    color: red;
+    top: 0px;
+    right: 0;
+
+}
+
+.button:hover {
+    color: black;
+    background-color: var(--Light-blue);
+}
+
+
+.main2 .box {
+    display: flex;
+    margin-top: 40px;
+}
+
+.main2 .box .card {
+    width: 100px;
+    border: 1px solid var(--Cool-gray);
+    padding: 20px 130px 20px 15px;
+    border-radius: 10px;
+    margin-right: 20px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.main2 .kind {
+    font-weight: bold;
+}
+
+.main2 .price {
+    color: var(--Cool-gray);
+}
+
+.main2 .box .card img {
+    width: 40px;
+    margin-bottom: 50px;
+}
+
+.selected {
+    background-color: var(--Alabaster);
+    border-color: var(--Purplish-blue) !important;
+}
+
+.card:hover {
+    border-color: var(--Purplish-blue) !important;
+}
+
+.unvalid input,
+.requer input {
+    transition: .5s;
+    border-color: red;
+    outline-color: red;
+}
+
+.moyr {
+    display: flex;
+    background-color: var(--Alabaster);
+    justify-content: space-evenly;
+    margin: 20px 0;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: var(--Cool-gray);
+    font-weight: bold;
+    align-items: center;
+}
+
+
+.moyr .active {
+    color: var(--Marine-blue)
+}
+
+.click {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: var(--Marine-blue);
+}
+
+.click .thebutton {
+    transition: .5s;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    top: 5px;
+    left: 5px;
+}
+
+.back {
+    margin-right: auto;
+    color: var(--Cool-gray);
+    transition: .5s;
+    cursor: pointer;
+}
+
+.back:hover {
+    color: var(--Marine-blue);
+}
+
+.card div:nth-child(4) {
+    width: 150px;
+}
+
+.click .thebutton.clicked {
+    transform: translateX(30px);
+}
+
+.main3 .ons {
+    margin-top: 20px;
+    display: block;
+}
+
+.ons .head {
+    color: var(--Marine-blue);
+}
+
+
+.ons .info p {
+    color: var(--Cool-gray);
+    margin-top: 5px;
+}
+
+.ons .card {
+    width: 400px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    padding: 20px 20px 10px;
+    border: 1px solid var(--Cool-gray);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.card .image {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--Cool-gray);
+    margin-right: 20px;
+    transition: .5s;
+}
+
+.ons .price {
+    margin-left: auto;
+}
+
+.ons .selected .image {
+    background-color: var(--Marine-blue);
+}
+
+@media (max-width:1199px) {
+    .main {
+        width: 900px;
+    }
+}
+
+@media (max-width:991px) {
+    .container {
+        padding: 0;
+    }
+
+    .main {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .box1 {
+        display: flex;
+        background-image: url(imgaes/bg-sidebar-mobile.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100px;
+    }
+
+
+    .box1 img {
+        display: none;
+    }
+
+    .info {
+        top: 0 !important;
+        right: 40px;
+        display: inline;
+    }
+
+    .info:first-of-type {
+        top: 40px !important;
+        right: -90px;
+    }
+
+    .forma {
+        display: none;
+    }
+
+    .box2 {
+        position: relative;
+        top: -65px;
+        background-color: white;
+        border-radius: 10px;
+        right: 20px;
+        padding: 5px;
+    }
+
+    .ons .card {
+        width: 300px;
+    }
+
+}
+
+.main4 .box {
+    background-color: var(--Alabaster);
+    padding: 10px
+}
+
+.main4 .box>div {
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    position: relative;
+}
+
+.main4 .box>div .head {
+    font-size: 20px;
+}
+
+.main4 .box>div:first-child {
+    display: flex;
+    justify-content: space-between;
+    color: var(--Marine-blue);
+    font-weight: bold;
+}
+
+.main4 .box>div div:last-child {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+}
+
+.main4 .box>div p {
+    margin: 5px;
+}
+
+.total {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total span:nth-child(2) {
+    font-weight: bold;
+    color: var(--Purplish-blue)
+}
+
+.main5 .box2 {
+    display: block;
+    text-align: center;
+    flex: 1;
+    padding: 40px;
+    font-size: 20px;
+}

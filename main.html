@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rubik's Cube</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bondi.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Kumbh+Sans:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg pe-4 ps-4 sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="images/41118aa1-da3f-4d43-9f71-763d087c4d55.webp"
+                    class="img-fluid ms-5"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars bar"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-lg-2 mb-lg-0 ms-lg-auto p-3">
+                    <li class="nav-item">
+                        <a class="nav-link ms-lg-5 me-4 " aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 " href="lear.html">Learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 " href="comp.html">Competitions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 " href="settings.html">⚙️Settings</a>
+                    </li>
+                    <li class="nav-item themore">
+                        <a class="nav-link me-4 click">More Links</a>
+                        <div class="more d-flex align-items-center">
+                            <img src="images/megamenu.png" class="img-fluid">
+                            <ul class="links">
+                                <li><a class="nav-link" href="#futures"><i class="fas fa-rocket"></i>
+                                        Futures</a>
+                                </li>
+                                <li><a class="nav-link text-capitalize" href="#team"><i class="fa-regular fa-user"></i>
+                                        team
+                                        membre</a>
+                                </li>
+                                <li><a class="nav-link text-capitalize" href="#services"><i
+                                            class="fa-regular fa-building"></i>
+                                        services</a>
+                                </li>
+                            </ul>
+                            <ul class="links">
+                                <li><a class="nav-link text-capitalize" href="#pricing"><i
+                                            class="fa-solid fa-server"></i>
+                                        pricing plan</a>
+                                </li>
+                                <li><a class="nav-link text-capitalize" href="#stats"><i
+                                            class="fa-solid fa-chart-bar"></i>
+                                        stats</a></li>
+                                <li><a class="nav-link text-capitalize" href="shop.html"><i
+                                            class="fa-solid fa-percent"></i>
+                                        Shop</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <div class=" btn btn-primary p-2 rounded text-white text-uppercase m">
+                        <a href="login.html" class="nav-link p-0">log in</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="landing d-flex justify-content-center align-items-center">
+        <div class="info text-center">
+            <h1 class="pt-5">Enter to Our World</h1>
+            <p class="text-white-50 text-capitalize mt-3 mb-4">we learn you how to solve cube</p>
+            <div class="btn rounded btn-primary text-uppercase">get started</div>
+        </div>
+    </div>
+    <div class="futures sec p-5 position-relative" id="futures">
+        <div class="main-title text-center mt-5 pt-5">
+            <img src="images/title.png" class="img-fluid">
+            <h1 class="text-capitalize fs-2 mt-3">what we give to you</h1>
+            <p class="text-white-50 fs-4 text-capitalize">some of our futures</p>
+        </div>
+
+        <div class="container text-center">
+            <div class="row justify-content-center mt-5 mb-5">
+                <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
+                    <div class="inform">
+                        <i class="fas fa-1 icon"></i>
+                        <div class="info text-capitalize">we learn you how to become pro from begining.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
+                    <div class="inform">
+                        <i class="fas fa-2 icon"></i>
+                        <div class="info text-capitalize">A growing collection of CFOP and Roux.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
+                    <div class="inform">
+                        <i class="fas fa-3 icon"></i>
+                        <div class="info text-capitalize">A user-friendly dark mode option for better readability.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="team sec p-5 section" id="team">
+        <div class="main-title text-center mt-5 pt-5">
+            <img src="images/title.png" class="img-fluid">
+            <h1 class="text-capitalize fs-2 mt-3">the team member</h1>
+            <p class="text-white-50 fs-4 text-capitalize">some of our members</p>
+        </div>
+        <div class="container mt-5">
+            <div class="row gap-3 justify-content-center">
+                <!-- Team Member 1 -->
+                <div class="col-lg-3 col-md-6 mt-5 mb-5 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-2">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <img src="images/16e0c42a-f21d-489e-8a08-16b6db0d24a0.webp" class="img-fluid ">
+                    <div class="team-info">
+                        <h4>Adam Smith</h4>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="col-lg-3 col-md-6 mt-5 mb-5 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-2">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <img src="images/aad05a37-01fc-4b04-9e4c-cf1ec3c21818.webp" class="img-fluid ">
+                    <div class="team-info">
+                        <h4>Sophia Johnson</h4>
+                        <p>UI/UX Designer</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="col-lg-3 col-md-6 mt-5 mb-5 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-2">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <img src="images/7da66c99-fc1f-493f-8605-f9d9270cbfda.webp" class="img-fluid ">
+                    <div class="team-info">
+                        <h4>Michael Brown</h4>
+                        <p>Project Manager</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="col-lg-3 col-md-6 mt-5 mb-5 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-2">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <img src="images/5757b1a5-b698-4d74-b097-9e0be6012167.webp" class="img-fluid ">
+                    <div class="team-info">
+                        <h4>Emma Davis</h4>
+                        <p>Data Analyst</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="col-lg-3 col-md-6 mt-5 mb-5 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-2">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <img src="images/ac6a6f12-37d7-4392-b24a-0e75573215c8.webp" class="img-fluid ">
+                    <div class="team-info">
+                        <h4>James Wilson</h4>
+                        <p>Cybersecurity Specialist</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="col-lg-3 col-md-6 mt-5 mb-5 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-2">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <img src="images/b490f49f-a444-404f-be74-01ef7459a014.webp" class="img-fluid ">
+                    <div class="team-info">
+                        <h4>Olivia Martinez</h4>
+                        <p>Marketing Strategist</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 7 -->
+                <div class="col-lg-3 col-md-6 mt-5 mb-5 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-2">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <img src="images/c9314b6f-e2ef-45c5-85d4-26087461cead.webp" class="img-fluid">
+                    <div class="team-info">
+                        <h4>Ethan Taylor</h4>
+                        <p>AI Engineer</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 8 -->
+                <div class="col-lg-3 col-md-6 mt-5 mb-5 text-center">
+                    <div class="social-icons d-flex justify-content-center gap-2">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <img src="images/4f9c7173-c61c-4bc4-9117-6481180947bf.webp" class="img-fluid ">
+                    <div class="team-info">
+                        <h4>Ava Anderson</h4>
+                        <p>Product Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec services section p-5" id="services">
+        <div class="main-title text-center mt-5 pt-5">
+            <img src="images/title.png" class="img-fluid">
+            <h1 class="text-capitalize fs-2 mt-3">our services</h1>
+            <p class="text-white-50 fs-4 text-capitalize">some of our services</p>
+        </div>
+        <div class="container mt-5">
+            <div class="row gap-3 justify-content-center">
+                <div class="col-lg-3 col-md-6">
+                    <img src="images/8f4bb19c-bca0-4b6d-98ff-1bf6f038efd5.webp" class="img-fluid">
+                    <div class="info text-white-50">Beginner’s Guide</div>
+                    <i class="fas fa-1 icon"></i>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <img src="images/7e7842a9-02c6-4f03-aaa8-f8d8b8ed5965.webp" class="img-fluid">
+                    <div class="info text-white-50">Advanced Methods</div>
+                    <i class="fas fa-2 icon"></i>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <img src="images/29a5a31c-fcfb-4362-a6d4-028763de704d.webp" class="img-fluid">
+                    <div class="info text-white-50">Speedcubing Training</div>
+                    <i class="fas fa-3 icon"></i>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <img src="images/016ee3bb-bd6c-4c79-81e1-b7dcdc52f35c.webp" class="img-fluid">
+                    <div class="info text-white-50">Algorithm Library</div>
+                    <i class="fas fa-4 icon"></i>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <img src="images/52e72508-5ff4-4dd1-bf1b-af75010edb70.webp" class="img-fluid">
+                    <div class="info text-white-50">One-on-One Coachingy</div>
+                    <i class="fas fa-5 icon"></i>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <img src="images/713e18fc-7ea1-4228-b079-02118f83f29b.webp" class="img-fluid">
+                    <div class="info text-white-50">Competition Prep</div>
+                    <i class="fas fa-6 icon"></i>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <img src="images/264ade2f-d174-4735-8ddf-5d46cd7791f4.webp" class="img-fluid">
+                    <div class="info text-white-50">Cube Reviews & Recommendations</div>
+                    <i class="fas fa-7 icon"></i>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <img src="images/1c57cb93-ac3a-4ae4-ae9f-7e5073410b53.webp" class="img-fluid">
+                    <div class="info text-white-50">Online Timer & Stats Tracker</div>
+                    <i class="fas fa-8 icon"></i>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec pricing text-center p-5" id="pricing">
+        <div class="main-title text-center pt-5 mb-5">
+            <img src="images/title.png" class="img-fluid">
+            <h1 class="text-capitalize fs-2 mt-3">our plans</h1>
+            <p class="text-white-50 fs-4 text-capitalize">some of our plans</p>
+        </div>
+        <div class="container row justify-content-center gap-5 m-auto mt-5">
+            <div class="card col-lg-3">
+                <h3 class="title">basic</h3>
+                <img src="images/hosting-basic.png" alt="image" class="img-fluid">
+                <div class="price">
+                    <span class="amount">$15</span>
+                    <span class="time">per month</span>
+                </div>
+                <ul>
+                    <li>10GB HDD Space</li>
+                    <li>5 Email Addresses</li>
+                    <li>2 Subdomains</li>
+                    <li>4 Databases</li>
+                    <li>Basic Support</li>
+                </ul>
+                <div class=" btn btn-primary p-2 rounded text-white text-uppercase m-auto"><a href="main1.html"
+                        class="nav-link">choose
+                        plan</a>
+                </div>
+            </div>
+            <div class="card most col-lg-3">
+                <div class="label">most pouplar</div>
+                <h3 class="title">advanced</h3>
+                <img src="images/hosting-advanced.png" alt="image" class="img-fluid">
+                <div class="price">
+                    <span class="amount">$25</span>
+                    <span class="time">per month</span>
+                </div>
+                <ul>
+                    <li>20GB HDD Space</li>
+                    <li>10 Email Addresses</li>
+                    <li>5 Subdomains</li>
+                    <li>8 Databases</li>
+                    <li>advanced Support</li>
+                </ul>
+                <div class=" btn btn-primary p-2 rounded text-white text-uppercase m-auto"><a href="main1.html"
+                        class="nav-link">choose
+                        plan</a>
+                </div>
+            </div>
+            <div class="card col-lg-3">
+                <h3 class="title">professional</h3>
+                <img src="images/hosting-professional.png" class="img-fluid">
+                <div class="price">
+                    <span class="amount">$45</span>
+                    <span class="time">per month</span>
+                </div>
+                <ul>
+                    <li>50GB HDD Space</li>
+                    <li>20 Email Addresses</li>
+                    <li>10 Subdomains</li>
+                    <li>20 Databases</li>
+                    <li>professional Support</li>
+                </ul>
+                <div class=" btn btn-primary p-2 rounded text-white text-uppercase m-auto"><a href="main1.html"
+                        class="nav-link">choose
+                        plan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec stats p-5 text-center" id="stats">
+        <div class="main-title text-center pt-5 mb-5">
+            <img src="images/title.png" class="img-fluid">
+            <h1 class="text-capitalize fs-2 mt-3">our stats</h1>
+            <p class="text-white-50 fs-4 text-capitalize">some of our stats</p>
+        </div>
+        <div class="container m-auto mt-5">
+            <div class="row gap-3 m-auto justify-content-between">
+                <div class="col-lg-2 col-md-4">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <div class="number">20</div>
+                    <div class="type text-capitalize">conturies</div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <i class="fa-solid fa-cubes"></i>
+                    <div class="number">135</div>
+                    <div class="type text-capitalize">cubes</div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <i class="fa-solid fa-user"></i>
+                    <div class="number">300</div>
+                    <div class="type text-capitalize">solvers</div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <i class="fa-solid fa-trophy"></i>
+                    <div class="number">25</div>
+                    <div class="type text-capitalize">Competitions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer text-uppercase text-center">
+        made by meko
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/bondi.js"></script>
+    <!-- <script src="js/all.min.js"></script> -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
