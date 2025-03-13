@@ -616,6 +616,28 @@ nav {
 }
 
 @media (max-width:991px) {
+    .big {
+        flex-direction: column;
+        justify-content: center !important;
+        margin: auto;
+        width: fit-content;
+    }
+
+    .big .cart-add {
+        margin: auto;
+        width: fit-content;
+    }
+
+    .big .images>img {
+        margin: auto;
+        display: block;
+        width: 150px;
+    }
+
+    .p-m {
+        margin: auto;
+        display: block;
+    }
 
     .more img {
         display: none;
@@ -627,9 +649,6 @@ nav {
 }
 
 @media (max-width:767px) {
-    .shop .row {
-        padding: 100px;
-    }
 
     .section {
         padding: 0 !important;
