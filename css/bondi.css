@@ -95,7 +95,7 @@ nav {
 }
 
 .bar {
-    color: white;
+    color: var(--t-color);
 }
 
 .navbar-toggler:focus {
