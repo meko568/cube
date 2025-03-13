@@ -249,7 +249,7 @@ if (location.pathname === "/cube/main4.html") {
     let t = 0
     div.innerHTML = `<span>${localStorage.plan}(${localStorage.chossen})</span><span>+$<span>${localStorage.price}</span>/<span>${l}</span>`;
     document.querySelector(".box").appendChild(div)
-    for (let a = (localStorage.length - 5) / 2; a > 0; a--) {
+    for (let a = (localStorage.length - 12) / 2; a > 0; a--) {
 
         console.log("0")
         let div = document.createElement("div");
