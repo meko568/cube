@@ -351,7 +351,7 @@ if (sizebtn1) {
     }
 }
 window.onload = function () {
-    if (location.pathname === "/shop.html") {
+    if (location.pathname === "/cube/shop.html") {
         let row = document.querySelector(".row")
         for (let i = 0; i < cubes.length; i++) {
             let div = document.createElement("div");
