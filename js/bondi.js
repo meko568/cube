@@ -379,8 +379,6 @@ window.onload = function () {
                 <img src="${e.children[0].src}" class="img-0" data-num="0">
             </div>
             <div class="info">
-                <div class="com">Sneaker Company</div>
-                <div class="des">Fall Limited Edition Sneakers</div>
                 <div class="the">${cubes[+document.querySelector(".cube").getAttribute("cubes-num")].info}
                 </div>
                 <div class="price">
