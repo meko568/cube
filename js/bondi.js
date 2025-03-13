@@ -104,15 +104,17 @@ if (themore) {
         more.classList.toggle("display");
     }
 }
-search.oninput = function () {
-    document.querySelectorAll(".cube .name").forEach(function (e) {
-        if (e.innerHTML.includes(search.value)) {
-            e.parentElement.parentElement.style.display = "block"
+if (search) {
+    search.oninput = function () {
+        document.querySelectorAll(".cube .name").forEach(function (e) {
+            if (e.innerHTML.includes(search.value)) {
+                e.parentElement.parentElement.style.display = "block"
 
-        } else {
-            e.parentElement.parentElement.style.display = "none"
-        }
-    })
+            } else {
+                e.parentElement.parentElement.style.display = "none"
+            }
+        })
+    }
 }
 const cubes = [
     {
