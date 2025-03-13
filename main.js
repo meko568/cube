@@ -1,5 +1,5 @@
 
-if (location.pathname === "/main1.html") {
+if (location.pathname === "/cube/main1.html") {
     let nexts = document.querySelectorAll(".next");
     let buttons = document.querySelectorAll(".button")
     let email = document.querySelector(".email");
@@ -57,9 +57,9 @@ if (location.pathname === "/main1.html") {
     }
     nexts.forEach(function (e) {
         e.onclick = function () {
-            if (location.pathname === "/main1.html") {
+            if (location.pathname === "/cube/main1.html") {
                 if (valid1 === true && valid2 === true && valid3 === true) {
-                    location.pathname = `/main${+e.dataset.num + 1}.html`
+                    location.pathname = `/cube/main${+e.dataset.num + 1}.html`
                 } else {
                     document.querySelectorAll("input").forEach(function (e) {
                         e.parentElement.classList.add("com");
@@ -78,9 +78,9 @@ if (location.pathname === "/main1.html") {
         console.log(e)
         console.log(+e.dataset.num)
         e.onclick = function () {
-            if (location.pathname === "/main1.html") {
+            if (location.pathname === "/cube/main1.html") {
                 if ((valid1 === true && valid2 === true && valid3 === true) || (emailre.test(email.value) && phonere.test(phone.value) && namein.value !== "")) {
-                    location.pathname = `/main${e.dataset.num}.html`
+                    location.pathname = `/cube/main${e.dataset.num}.html`
                 } else {
                     document.querySelectorAll("input").forEach(function (e) {
                         e.parentElement.classList.add("com");
@@ -96,7 +96,7 @@ if (location.pathname === "/main1.html") {
         }
     })
 }
-if (location.pathname === "/main2.html") {
+if (location.pathname === "/cube/main2.html") {
     let back = document.querySelector(".back");
     let nexts = document.querySelectorAll(".next");
     let buttons = document.querySelectorAll(".button");
@@ -152,27 +152,27 @@ if (location.pathname === "/main2.html") {
     }
     nexts.forEach(function (e) {
         e.onclick = function () {
-            if (location.pathname === "/main2.html") {
-                location.pathname = `/main${+e.dataset.num + 1}.html`
+            if (location.pathname === "/cube/main2.html") {
+                location.pathname = `/cube/main${+e.dataset.num + 1}.html`
 
             }
         }
     })
     buttons.forEach(function (e) {
         e.onclick = function () {
-            if (location.pathname === "/main2.html") {
-                location.pathname = `/main${e.dataset.num}.html`
+            if (location.pathname === "/cube/main2.html") {
+                location.pathname = `/cube/main${e.dataset.num}.html`
             }
 
         }
     })
     back.onclick = function () {
-        if (location.pathname === "/main2.html") {
-            location.pathname = `/main${+back.dataset.num - 1}.html`
+        if (location.pathname === "/cube/main2.html") {
+            location.pathname = `/cube/main${+back.dataset.num - 1}.html`
         }
     }
 }
-if (location.pathname === "/main3.html") {
+if (location.pathname === "/cube/main3.html") {
     let i = 1;
     let j = 1;
     let back = document.querySelector(".back");
@@ -210,27 +210,27 @@ if (location.pathname === "/main3.html") {
     })
     nexts.forEach(function (e) {
         e.onclick = function () {
-            if (location.pathname === "/main3.html") {
-                location.pathname = `/main${+e.dataset.num + 1}.html`
+            if (location.pathname === "/cube/main3.html") {
+                location.pathname = `/cube/main${+e.dataset.num + 1}.html`
 
             }
         }
     })
     buttons.forEach(function (e) {
         e.onclick = function () {
-            if (location.pathname === "/main3.html") {
-                location.pathname = `/main${e.dataset.num}.html`
+            if (location.pathname === "/cube/main3.html") {
+                location.pathname = `/cube/main${e.dataset.num}.html`
             }
 
         }
     })
     back.onclick = function () {
-        if (location.pathname === "/main3.html") {
-            location.pathname = `/main${+back.dataset.num - 1}.html`
+        if (location.pathname === "/cube/main3.html") {
+            location.pathname = `/cube/main${+back.dataset.num - 1}.html`
         }
     }
 }
-if (location.pathname === "/main4.html") {
+if (location.pathname === "/cube/main4.html") {
     let confirm = document.querySelector(".confirm")
     let buttons = document.querySelectorAll(".button");
     let back = document.querySelector(".back");
@@ -267,20 +267,20 @@ if (location.pathname === "/main4.html") {
     total.innerHTML = `<span>total(per${p})</span><span>+$${+localStorage.price + +t}`;
     buttons.forEach(function (e) {
         e.onclick = function () {
-            if (location.pathname === "/main4.html") {
-                location.pathname = `/main${e.dataset.num}.html`
+            if (location.pathname === "/cube/main4.html") {
+                location.pathname = `/cube/main${e.dataset.num}.html`
             }
 
         }
     })
     back.onclick = function () {
-        if (location.pathname === "/main4.html") {
-            location.pathname = `/main${+back.dataset.num - 1}.html`
+        if (location.pathname === "/cube/main4.html") {
+            location.pathname = `/cube/main${+back.dataset.num - 1}.html`
 
         }
     }
     confirm.onclick = function () {
-        location.pathname = "/main.html";
+        location.pathname = "/cube/main.html";
         localStorage.clear();
     }
 }

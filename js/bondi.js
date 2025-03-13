@@ -94,6 +94,8 @@ const root = document.documentElement;
 const rootStyles = getComputedStyle(root);
 
 // Get the value of the CSS variable
+let list = document.querySelector("datalist");
+let search = document.querySelector("[list]");
 const primaryColor = rootStyles.getPropertyValue("--back-color").trim();
 let more = document.querySelector(".more");
 let themore = document.querySelector(".themore");
@@ -102,6 +104,79 @@ if (themore) {
         more.classList.toggle("display");
     }
 }
+search.oninput = function () {
+    document.querySelectorAll(".cube .name").forEach(function (e) {
+        if (e.innerHTML.includes(search.value)) {
+            e.parentElement.parentElement.style.display = "block"
+
+        } else {
+            e.parentElement.parentElement.style.display = "none"
+        }
+    })
+}
+const cubes = [
+    {
+        name: "GAN 12 MagLev",
+        price: 59.99,
+        imgUrl: "https://tse3.mm.bing.net/th?id=OIP.fm6oIkaQonJ-22J0pjV6CgHaHI&w=456&h=456&c=7",
+        info: "A high-end 3x3 speed cube with MagLev technology for smoother turns."
+    },
+    {
+        name: "MoYu RS3M 2020",
+        price: 9.99,
+        imgUrl: "https://tse2.mm.bing.net/th?id=OIP.7G3h_Edm1-wxfqcJbpMMSgHaHa&w=474&h=474&c=7",
+        info: "One of the best budget magnetic speedcubes, great for beginners and advanced solvers."
+    },
+    {
+        name: "DianSheng Solar S3M",
+        price: 14.99,
+        imgUrl: "https://tse1.mm.bing.net/th?id=OIP.YUOrqY_15AfsN4kDhF3RkQHaE8&w=316&h=316&c=7",
+        info: "A great mid-range cube with strong magnets and smooth turning."
+    },
+    {
+        name: "YJ MGC Elite 3x3",
+        price: 24.99,
+        imgUrl: "https://tse2.mm.bing.net/th?id=OIP.0OoruaWTNsSp2VAHYIPmKgHaHa&w=474&h=474&c=7",
+        info: "A premium magnetic cube with adjustable tensions and a fast, controllable feel."
+    },
+    {
+        name: "QiYi Valk 3 Elite M",
+        price: 34.99,
+        imgUrl: "https://tse4.mm.bing.net/th?id=OIP.2pxiKyurUGrsCIwJsJ5zngHaHa&w=474&h=474&c=7",
+        info: "Designed in collaboration with Mats Valk, featuring adjustable magnets and smooth corner cutting."
+    },
+    {
+        name: "GAN 11 M Pro",
+        price: 49.99,
+        imgUrl: "https://m.media-amazon.com/images/I/611-Zn-uj1L._AC_SL1000_.jpg",
+        info: "A top-tier speedcube with adjustable magnets and a lightweight design."
+    },
+    {
+        name: "MoYu Weilong WR M 2021",
+        price: 29.99,
+        imgUrl: "https://tse1.mm.bing.net/th?id=OIP.YXg12oFjK_Ky3tPfISlcrgHaIO&w=474&h=474&c=7",
+        info: "A flagship cube with a soft, stable feel and great corner-cutting abilities."
+    },
+    {
+        name: "Yuxin Little Magic M",
+        price: 8.99,
+        imgUrl: "https://tse2.mm.bing.net/th?id=OIP.IWlp0wP0AqDWV5_OG3HsRQHaHa&w=474&h=474&c=7",
+        info: "A budget-friendly magnetic cube with smooth turning and good performance."
+    },
+    {
+        name: "RS3M Super V2",
+        price: 19.99,
+        imgUrl: "https://tse3.mm.bing.net/th?id=OIP.dnv_K7aSB26b3mL7GQuV2gHaHa&w=474&h=474&c=7",
+        info: "An upgraded version of the popular RS3M with better stability and performance."
+    },
+    {
+        name: "Tornado V3 M",
+        price: 39.99,
+        imgUrl: "https://tse2.mm.bing.net/th?id=OIP.B5-DjXNCFl6gruce-ndl1AHaHt&w=474&h=474&c=7",
+        info: "A highly customizable cube with smooth and fast turning, great for competitions."
+    }
+];
+
 let team = document.querySelector(".team .container");
 let futures = document.querySelector(".futures .container");
 let services = document.querySelector(".services .container");
@@ -273,8 +348,104 @@ if (sizebtn1) {
         localStorage.size = 12;
     }
 }
-
 window.onload = function () {
+    if (location.pathname === "/shop.html") {
+        let row = document.querySelector(".row")
+        for (let i = 0; i < cubes.length; i++) {
+            let div = document.createElement("div");
+            div.classList.add("cube", "col-lg-3", "col-md-5")
+            div.setAttribute("cubes-num", i)
+            div.innerHTML = `<img src="${cubes[i].imgUrl}" class="img-fluid"><div class="info"><h2 class="name">${cubes[i].name}</h2><p class="price">${cubes[i].price}</p>`;
+            row.appendChild(div);
+            let opt = document.createElement("option");
+            opt.setAttribute("value", cubes[i].name)
+            list.appendChild(opt)
+        }
+        function re() {
+            document.querySelectorAll(".cube").forEach(e => {
+                e.onclick = function () {
+
+                    localStorage.inner = row.innerHTML;
+                    let inner = localStorage.inner;
+                    console.log(0)
+                    let back = document.createElement("div");
+                    back.className = "back";
+                    back.innerHTML = "back"
+                    row.before(back)
+                    row.innerHTML = `<div class="box big">
+            <div class="images">
+                <img src="${e.children[0].src}" class="img-0" data-num="0">
+            </div>
+            <div class="info">
+                <div class="com">Sneaker Company</div>
+                <div class="des">Fall Limited Edition Sneakers</div>
+                <div class="the">${cubes[+document.querySelector(".cube").getAttribute("cubes-num")].info}
+                </div>
+                <div class="price">
+                    <div class="price-after">${e.children[1].children[1].innerHTML}</div>
+                </div>
+                <div class="cart-add">
+                    <div class="p-m">
+                        <img src="../images/icon-minus.svg" class="minus">
+                        <span>0</span>
+                        <img src="images/icon-plus.svg" class="plus">
+                    </div>
+                    <div class="add btn btn-primary">
+                        <img src="images/icon-cart.svg" alt="">
+                        <span>add to cart</span>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+                    document.querySelector(".search").style.display = "none";
+                    let plus = document.querySelector(".plus");
+                    let minus = document.querySelector(".minus");
+                    let num = document.querySelector(".p-m span");
+                    let add = document.querySelector(".add span")
+                    let images = document.querySelectorAll(".images img")
+                    let next = document.createElement("img");
+                    let theback = document.createElement("img");
+                    let remove = document.createElement("img");
+                    remove.src = "images/icon-close.svg";
+                    remove.className = "remove";
+                    let check = document.querySelector(".theimg");
+                    let cart = document.querySelector(".sel");
+                    let the = document.querySelector(".sel div:nth-child(2)")
+                    add.onclick = function () {
+                        if (add.innerHTML === "Add To cart") {
+                            num.innerHTML = +num.innerHTML + 1;
+                            add.innerHTML = "Added To cart"
+                        }
+                    }
+                    plus.onclick = function () {
+                        num.innerHTML = +num.innerHTML + 1
+                        minus.classList.remove("min0");
+                        add.innerHTML = "Added To cart";
+                        add.parentElement.classList.add("added");
+                    }
+                    minus.onclick = function () {
+                        if (num.innerHTML === "1") {
+                            add.innerHTML = "Add To cart"
+                            add.parentElement.classList.remove("added")
+                            minus.classList.add("min0")
+                        } else {
+                            add.parentElement.classList.add("added")
+                        }
+                        if (num.innerHTML > 0) {
+                            num.innerHTML = +num.innerHTML - 1;
+                        }
+                    }
+                    back.onclick = function () {
+                        row.innerHTML = inner;
+                        document.querySelector(".search").style.display = "block"
+                        back.remove()
+                        re()
+                    }
+                }
+            });
+        }
+        re()
+    }
     if (localStorage.log === "loged") {
         if (document.querySelector(".navbar .btn")) {
             document.querySelector(".navbar .btn").remove();
@@ -488,7 +659,7 @@ if (finish) {
     }
     finish.onclick = function () {
         if (valid1 === true && valid2 == true && valid3 === true) {
-            location.pathname = "/main.html";
+            location.pathname = "/cube/main.html";
             localStorage.log = "loged";
             localStorage.name = namein.value;
             localStorage.email = email.value;
