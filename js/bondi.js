@@ -388,7 +388,7 @@ window.onload = function () {
                 </div>
                 <div class="cart-add">
                     <div class="p-m">
-                        <img src="../images/icon-minus.svg" class="minus">
+                        <img src="images/icon-minus.svg" class="minus">
                         <span>0</span>
                         <img src="images/icon-plus.svg" class="plus">
                     </div>
