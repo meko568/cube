@@ -615,7 +615,22 @@ nav {
     background-color: var(--back-color);
 }
 
+
 @media (max-width:991px) {
+    .stats .col-lg-2 {
+        width: 100%;
+    }
+
+    .shop .main {
+        flex-direction: column;
+        align-items: center !important;
+        gap: 20px;
+    }
+
+    .cart {
+        width: 70% !important;
+    }
+
     .big {
         flex-direction: column;
         justify-content: center !important;
@@ -820,9 +835,9 @@ p.text-white-50:hover {
     text-transform: capitalize;
     right: 0;
     top: -25px;
-    color: red;
     transition: .5s;
     opacity: 0;
+    color: black;
 }
 
 .input::after {
@@ -831,7 +846,7 @@ p.text-white-50:hover {
     text-transform: capitalize;
     right: 0;
     top: -25px;
-    color: red;
+    color: black;
     transition: .5s;
     opacity: 0;
 }
@@ -983,10 +998,107 @@ p.text-white-50:hover {
 }
 
 .big .images img {
-    height: 100%;
+    height: 300px;
+    width: fit-content;
 }
 
 .add img {
     width: 50px;
     height: fit-content;
+}
+
+.shop .main {
+    display: flex;
+    padding: 10px;
+    align-items: start;
+}
+
+.cart {
+    background-color: #eee;
+    width: 30%;
+    text-align: center;
+}
+
+.clicked {
+    pointer-events: none;
+}
+
+.clicked:hover {
+    animation: none !important;
+}
+
+.sel {
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.sel>div:not(.confirm) {
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.sel div img {
+    width: 50px;
+    height: fit-content;
+}
+
+.sel .price span:nth-child(3) {
+    color: var(--green-color);
+}
+
+.confirm {
+    background-color: var(--secondary-accent);
+    border-color: var(--secondary-accent) !important;
+    color: white;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.confirm:hover {
+    animation: scaling .7s infinite;
+}
+
+.none {
+    pointer-events: none;
+    opacity: .5;
+    z-index: -1;
+}
+
+.main-buy {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 10;
+    background-color: var(--dark-color);
+    text-align: center;
+}
+
+.buy {
+    background-color: var(--secondary-accent);
+    border-color: var(--secondary-accent) !important;
+    color: white;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: fit-content;
+    padding: 10px 20px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.buy:hover {
+    animation: .7s scaling infinite;
+}
+
+.total {
+    color: white;
+    margin-bottom: 10px;
 }

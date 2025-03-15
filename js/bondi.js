@@ -352,10 +352,14 @@ if (sizebtn1) {
 }
 window.onload = function () {
     if (location.pathname === "/cube/shop.html") {
+        if (localStorage.inner1) {
+            document.querySelector(".cart").innerHTML = localStorage.inner1
+        }
+
         let row = document.querySelector(".row")
         for (let i = 0; i < cubes.length; i++) {
             let div = document.createElement("div");
-            div.classList.add("cube", "col-lg-3", "col-md-5")
+            div.classList.add("cube", "col-lg-5", "col-md-7")
             div.setAttribute("cubes-num", i)
             div.innerHTML = `<img src="${cubes[i].imgUrl}" class="img-fluid"><div class="info"><h2 class="name">${cubes[i].name}</h2><p class="price">${cubes[i].price}</p>`;
             row.appendChild(div);
@@ -366,7 +370,10 @@ window.onload = function () {
         function re() {
             document.querySelectorAll(".cube").forEach(e => {
                 e.onclick = function () {
-
+                    let value = 0;
+                    if (document.querySelector(`.thisimg${e.getAttribute("cubes-num")}`)) {
+                        value = document.querySelector(`.thisimg${e.getAttribute("cubes-num")}`).parentElement.children[2].children[1].innerHTML;
+                    }
                     localStorage.inner = row.innerHTML;
                     let inner = localStorage.inner;
                     console.log(0)
@@ -387,7 +394,7 @@ window.onload = function () {
                 <div class="cart-add">
                     <div class="p-m">
                         <img src="images/icon-minus.svg" class="minus">
-                        <span>0</span>
+                        <span>${value}</span>
                         <img src="images/icon-plus.svg" class="plus">
                     </div>
                     <div class="add btn btn-primary">
@@ -410,18 +417,95 @@ window.onload = function () {
                     remove.className = "remove";
                     let check = document.querySelector(".theimg");
                     let cart = document.querySelector(".sel");
-                    let the = document.querySelector(".sel div:nth-child(2)")
-                    add.onclick = function () {
-                        if (add.innerHTML === "Add To cart") {
-                            num.innerHTML = +num.innerHTML + 1;
-                            add.innerHTML = "Added To cart"
+                    let the = document.querySelector(".sel")
+                    add.parentElement.onclick = function () {
+                        if (add.innerHTML === "add to cart") {
+                            add.parentElement.classList.add("clicked")
+                            num.innerHTML = 1;
+                            add.innerHTML = "Added To cart";
+                            let div = document.createElement("div");
+                            div.innerHTML = `<img class="thisimg1" src="${cubes[e.getAttribute("cubes-num")].imgUrl}"><div class="name">${cubes[e.getAttribute("cubes-num")].name}</div><div class="price"><span>${cubes[e.getAttribute("cubes-num")].price}</span>X <span>${num.innerHTML} </span><span> ${cubes[e.getAttribute("cubes-num")].price * +num.innerHTML}`;
+                            the.appendChild(div);
+                        }
+                        localStorage.inner1 = document.querySelector(".cart").innerHTML;
+                        if (!document.querySelector(".confirm")) {
+                            console.log(true)
+                            cart = document.querySelector(".sel")
+                            if (cart.children.length > 0) {
+                                console.log(cart.children.length)
+                                let confirm = document.createElement("div");
+                                confirm.innerHTML = "confirm";
+                                confirm.className = "confirm";
+                                cart.appendChild(confirm);
+                                confirm.onclick = function () {
+                                    let total = 0;
+                                    document.querySelectorAll(".sel .price").forEach(function (e) {
+                                        let the = +e.children[2].innerHTML;
+                                        total += the;
+                                    })
+                                    let buy = document.createElement("div");
+                                    buy.innerHTML = localStorage.inner1 + `<div class="total">total:${total}</div> <div class="buy">buy</div>`;
+                                    buy.className = "main-buy"
+                                    document.querySelector("body").appendChild(buy);
+                                    document.querySelector(".confirm").remove();
+                                    localStorage.removeItem("inner1");
+                                    document.querySelector(".sel").innerHTML = "";
+                                    document.querySelector(".shop").classList.add("none")
+                                    document.querySelector(".buy").onclick = function () {
+                                        buy.remove()
+                                        document.querySelector(".shop").classList.remove("none")
+
+                                    }
+                                }
+                            }
                         }
                     }
                     plus.onclick = function () {
-                        num.innerHTML = +num.innerHTML + 1
+                        add.parentElement.classList.add("clicked")
+                        num.innerHTML = +num.innerHTML + 1;
+                        if (!document.querySelector(`.thisimg${e.getAttribute("cubes-num")}`)) {
+                            let div = document.createElement("div");
+                            div.innerHTML = `<img class="thisimg${e.getAttribute("cubes-num")}" src="${cubes[e.getAttribute("cubes-num")].imgUrl}"><div class="name">${cubes[e.getAttribute("cubes-num")].name}</div><div class="price"><span>${cubes[e.getAttribute("cubes-num")].price}</span>X <span>${num.innerHTML} </span><span> ${cubes[e.getAttribute("cubes-num")].price * +num.innerHTML}`;
+                            the.appendChild(div);
+                        } else {
+                            document.querySelector(`.thisimg${e.getAttribute("cubes-num")}`).parentElement.children[2].innerHTML = `<span>${cubes[e.getAttribute("cubes-num")].price}</span>X <span>${num.innerHTML} </span><span>${cubes[e.getAttribute("cubes-num")].price * +num.innerHTML}`;
+                        }
                         minus.classList.remove("min0");
                         add.innerHTML = "Added To cart";
                         add.parentElement.classList.add("added");
+                        localStorage.inner1 = document.querySelector(".cart").innerHTML;
+                        if (!document.querySelector(".confirm")) {
+                            let cart = document.querySelector(".sel")
+                            if (cart.children.length > 0) {
+                                console.log(cart.children.length)
+                                let confirm = document.createElement("div");
+                                confirm.innerHTML = "confirm";
+                                confirm.className = "confirm";
+                                cart.appendChild(confirm);
+                                confirm.onclick = function () {
+                                    let total = 0;
+                                    document.querySelectorAll(".sel .price").forEach(function (e) {
+                                        let the = +e.children[2].innerHTML;
+                                        total += the;
+                                    })
+                                    let buy = document.createElement("div");
+                                    buy.innerHTML = localStorage.inner1 + `<div class="total">total:${total}</div> <div class="buy">buy</div>`;
+                                    buy.className = "main-buy"
+                                    document.querySelector("body").appendChild(buy);
+                                    document.querySelector(".confirm").remove();
+                                    localStorage.removeItem("inner1");
+                                    document.querySelector(".sel").innerHTML = "";
+                                    document.querySelector(".shop").classList.add("none")
+                                    document.querySelector(".confirm").remove();
+                                    document.querySelector(".buy").onclick = function () {
+                                        buy.remove()
+                                        document.querySelector(".shop").classList.remove("none")
+
+                                    }
+                                }
+
+                            }
+                        }
                     }
                     minus.onclick = function () {
                         if (num.innerHTML === "1") {
@@ -431,8 +515,55 @@ window.onload = function () {
                         } else {
                             add.parentElement.classList.add("added")
                         }
-                        if (num.innerHTML > 0) {
+                        if (num.innerHTML > "0") {
+                            add.parentElement.classList.add("clicked")
                             num.innerHTML = +num.innerHTML - 1;
+                            if (!document.querySelector(`.thisimg${e.getAttribute("cubes-num")}`)) {
+                                let div = document.createElement("div");
+                                div.innerHTML = `<img class="thisimg${e.getAttribute("cubes-num")}" src="${cubes[e.getAttribute("cubes-num")].imgUrl}"><div class="name">${cubes[e.getAttribute("cubes-num")].name}</div><div class="price"><span>${cubes[e.getAttribute("cubes-num")].price}</span>X <span>${num.innerHTML} </span><span> ${cubes[e.getAttribute("cubes-num")].price * +num.innerHTML}`;
+                                the.appendChild(div);
+                            } else {
+                                document.querySelector(`.thisimg${e.getAttribute("cubes-num")}`).parentElement.children[2].innerHTML = `<span>${cubes[e.getAttribute("cubes-num")].price}</span>X <span>${num.innerHTML} </span><span>${cubes[e.getAttribute("cubes-num")].price * +num.innerHTML}`;
+                            }
+                            if (num.innerHTML === "0") {
+                                document.querySelector(`.thisimg${e.getAttribute("cubes-num")}`).parentElement.remove();
+                                add.parentElement.classList.remove("clicked")
+
+                            }
+                            localStorage.inner1 = document.querySelector(".cart").innerHTML;
+                            if (!document.querySelector(".confirm")) {
+                                let cart = document.querySelector(".sel")
+                                if (cart.children.length > 0) {
+                                    console.log(cart.children.length)
+                                    let confirm = document.createElement("div");
+                                    confirm.innerHTML = "confirm";
+                                    confirm.className = "confirm";
+                                    cart.appendChild(confirm);
+                                    confirm.onclick = function () {
+                                        let total = 0;
+                                        document.querySelectorAll(".sel .price").forEach(function (e) {
+                                            let the = +e.children[2].innerHTML;
+                                            total += the;
+                                        })
+                                        let buy = document.createElement("div");
+                                        buy.innerHTML = localStorage.inner1 + `<div class="total">total:${total}</div> <div class="buy">buy</div>`;
+                                        buy.className = "main-buy"
+                                        document.querySelector(".confirm").remove();
+                                        document.querySelector("body").appendChild(buy);
+                                        document.querySelector(".confirm").remove();
+
+                                        localStorage.removeItem("inner1");
+                                        document.querySelector(".sel").innerHTML = "";
+                                        document.querySelector(".shop").classList.add("none")
+                                        document.querySelector(".buy").onclick = function () {
+                                            buy.remove()
+                                            document.querySelector(".shop").classList.remove("none")
+
+                                        }
+                                    }
+
+                                }
+                            }
                         }
                     }
                     back.onclick = function () {
@@ -440,6 +571,10 @@ window.onload = function () {
                         document.querySelector(".search").style.display = "block"
                         back.remove()
                         re()
+                    }
+                    if (num.innerHTML > "0") {
+                        add.parentElement.classList.add("clicked")
+                        add.innerHTML = "Added to cart";
                     }
                 }
             });

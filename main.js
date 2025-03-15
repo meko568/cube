@@ -248,10 +248,19 @@ if (location.pathname === "/cube/main4.html") {
     }
     let t = 0
     div.innerHTML = `<span>${localStorage.plan}(${localStorage.chossen})</span><span>+$<span>${localStorage.price}</span>/<span>${l}</span>`;
-    document.querySelector(".box").appendChild(div)
-    for (let a = (localStorage.length - 9) / 2; a > 0; a--) {
+    document.querySelector(".box").appendChild(div);
+    let mainnum = 0;
+    let the1 = /ons\d/
+    let the2 = /onsprice\d/
+    for (let j = 0; j < localStorage.length; j++) {
+        if (the1.test((localStorage.key(j))) || the2.test((localStorage.key(j)))) {
+        } else {
+            mainnum++
+        }
+    }
+    for (let a = (localStorage.length - mainnum) / 2; a > 0; a--) {
 
-        console.log("0")
+        console.log(mainnum)
         let div = document.createElement("div");
         div.innerHTML = localStorage.getItem(`ons${a - 1}`)
         let price = document.createElement("div");
