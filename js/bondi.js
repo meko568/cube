@@ -424,7 +424,7 @@ window.onload = function () {
                             num.innerHTML = 1;
                             add.innerHTML = "Added To cart";
                             let div = document.createElement("div");
-                            div.innerHTML = `<img class="thisimg1" src="${cubes[e.getAttribute("cubes-num")].imgUrl}"><div class="name">${cubes[e.getAttribute("cubes-num")].name}</div><div class="price"><span>${cubes[e.getAttribute("cubes-num")].price}</span>X <span>${num.innerHTML} </span><span> ${cubes[e.getAttribute("cubes-num")].price * +num.innerHTML}`;
+                            div.innerHTML = `<img class="thisimg${e.getAttribute("cubes-num")}" src="${cubes[e.getAttribute("cubes-num")].imgUrl}"><div class="name">${cubes[e.getAttribute("cubes-num")].name}</div><div class="price"><span>${cubes[e.getAttribute("cubes-num")].price}</span>X <span>${num.innerHTML} </span><span> ${cubes[e.getAttribute("cubes-num")].price * +num.innerHTML}`;
                             the.appendChild(div);
                         }
                         localStorage.inner1 = document.querySelector(".cart").innerHTML;

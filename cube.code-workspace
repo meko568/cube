@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../countries/conutries"
+		},
+		{
+			"path": "../../product/the-product"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "cube"
+	}
+}
