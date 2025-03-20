@@ -454,7 +454,10 @@ window.onload = function () {
                                     document.querySelector(".buy").onclick = function () {
                                         buy.remove()
                                         document.querySelector(".shop").classList.remove("none")
-
+                                    }
+                                    document.querySelector(".confirm").onclick = function () {
+                                        buy.remove()
+                                        document.querySelector(".shop").classList.remove("none")
                                     }
                                 }
                             }
@@ -498,6 +501,11 @@ window.onload = function () {
                                     document.querySelector(".shop").classList.add("none")
                                     document.querySelector(".confirm").remove();
                                     document.querySelector(".buy").onclick = function () {
+                                        buy.remove()
+                                        document.querySelector(".shop").classList.remove("none")
+
+                                    }
+                                    document.querySelector(".confirm").onclick = function () {
                                         buy.remove()
                                         document.querySelector(".shop").classList.remove("none")
 
@@ -556,6 +564,11 @@ window.onload = function () {
                                         document.querySelector(".sel").innerHTML = "";
                                         document.querySelector(".shop").classList.add("none")
                                         document.querySelector(".buy").onclick = function () {
+                                            buy.remove()
+                                            document.querySelector(".shop").classList.remove("none")
+
+                                        }
+                                        document.querySelector(".confirm").onclick = function () {
                                             buy.remove()
                                             document.querySelector(".shop").classList.remove("none")
 
