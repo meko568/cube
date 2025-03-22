@@ -33,7 +33,7 @@ body {
     position: absolute;
     background-color: white;
     border-radius: 20px;
-    bottom: 20px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     height: fit-content;
@@ -247,6 +247,17 @@ form>div {
 .main2 .box .card img {
     width: 40px;
     margin-bottom: 50px;
+}
+
+@media (max-width:991px) {
+    .main2 .box {
+        flex-direction: column;
+    }
+
+    .main2 .box .card {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 
 .selected {
