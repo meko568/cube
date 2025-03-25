@@ -5,9 +5,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>learn</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bondi.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Kumbh+Sans:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg pe-4 ps-4 sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="images/41118aa1-da3f-4d43-9f71-763d087c4d55.webp"
+                    class="img-fluid ms-5"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars bar"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-lg-2 mb-lg-0 ms-lg-auto p-3">
+                    <li class="nav-item">
+                        <a class="nav-link ms-lg-5 me-4 " aria-current="page" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 " href="lear.html">Learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-4 " href="settings.html">⚙️Settings</a>
+                    </li>
+                    <li class="nav-item themore">
+                        <a class="nav-link me-4 click">More Links</a>
+                        <div class="more d-flex align-items-center">
+                            <img src="images/megamenu.png" class="img-fluid">
+                            <ul class="links">
+                                <li><a class="nav-link text-capitalize" href="lear.html"><i
+                                            class="fa-regular fa-user"></i>
+                                        Cube Nation</a>
+                                </li>
+                                <li><a class="nav-link text-capitalize" href="beginner.html"><i
+                                            class="fa-regular fa-building"></i>
+                                        Beginner</a>
+                                </li>
+                            </ul>
+                            <ul class="links">
+                                <li><a class="nav-link text-capitalize" href="advanced.html"><i
+                                            class="fa-solid fa-server"></i>
+                                        Advanced</a>
+                                </li>
+                                <li><a class="nav-link text-capitalize" href="pro.html"><i
+                                            class="fa-solid fa-chart-bar"></i>
+                                        Pro</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <div class=" btn btn-primary p-2 rounded text-white text-uppercase m">
+                        <a href="login.html" class="nav-link p-0">log in</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="main-title text-center">
+        <h1 class="m-auto ">Cube Nation</h1>
+        <p class="text-white-50 m-auto">The Most Important thing to learn in beginning</p>
+    </div>
+    <div class="learn-letters section">
+        <div class="cube1">
+            <canvas id="cubeCanvas1"></canvas>
+            <div class="controls">
+                <button class="Z letter">Z</button>
+                <button class="Z- letter">Z'</button>
+                <button class="Y letter">Y</button>
+                <button class="Y- letter">Y'</button>
+                <button class="X letter">X</button>
+                <button class="X- letter">X'</button>
+            </div>
+        </div>
+        <div class="cube2">
+            <canvas id="cubeCanvas"></canvas>
+            <div class="controls">
+                <button class="letter" onclick="rotateFace('R\'')">R'</button>
+                <button class="letter" onclick="rotateFace('U\'')">U'</button>
+                <button class="letter" onclick="rotateFace('L\'')">L'</button>
+                <button class="letter" onclick="rotateFace('F\'')">F'</button>
+                <button class="letter" onclick="rotateFace('D\'')">D'</button>
+                <button class="letter" onclick="rotateFace('B\'')">B'</button>
+                <button class="letter" onclick="rotateFace('R')">R</button>
+                <button class="letter" onclick="rotateFace('L')">L</button>
+                <button class="letter" onclick="rotateFace('U')">U</button>
+                <button class="letter" onclick="rotateFace('D')">D</button>
+                <button class="letter" onclick="rotateFace('F')">F</button>
+                <button class="letter" onclick="rotateFace('B')">B</button>
+                <button class="letter" onclick="rotateFace('M')">M</button>
+                <button class="letter" onclick="rotateFace('M\'')">M'</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="about-cube pt-5">
+        <div class="main-title pt-5 text-center">
+            <h1 class="text-capitalize">about cube</h1>
+            <p class="text-white-50 text-capitalize">learning about cube</p>
+        </div>
+        <ul class="text-capitalize main-centers">
+            <li>first : center pieces
+                <div class="centers">
+                    <p class="text-white-50 m-0 mt-1"><span class="white">white</span> opppsite <span
+                            class="yellow">yellow</span>
+                    </p>
+                    <p class="text-white-50 m-0 mt-1"><span class="blue">blue</span> opppsite <span
+                            class="green">green</span>
+                    </p>
+                    <p class="text-white-50 m-0 mt-1"><span class="orange">orange</span> opppsite <span
+                            class="red">red</span>
+                    </p>
+                </div>
+            </li>
+            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/Centre-peices-of-rubiks-cube.jpg"
+                class="img-fluid">
+        </ul>
+        <ul class="text-capitalize main-centers">
+            <li>second : edges pieces
+                <div class="text-white-50 d-block">which contains two colors like <span class="blue">blue</span>,<span
+                        class="red">red</span></div>
+            </li>
+            </li>
+            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/edgepieces-of-rubiks-cube.jpg"
+                class="img-fluid">
+        </ul>
+        </ul>
+        <ul class="text-capitalize main-centers">
+            <li class="d-block">third : corners pieces
+                <div class="text-white-50 d-block">which contains three colors like <span class="blue">blue</span>,<span
+                        class="white">white</span>,<span class="red">red</span></div>
+            </li>
+            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/corner-pieces-of-rubiks-cube.jpg"
+                class="img-fluid">
+        </ul>
+    </div>
+    <div class="next-step btn btn-primary m-auto d-block mt-5"><a href="beginner.html" class="nav-link">Next Step</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/learn2.js"></script>
+    <script src="js/learn.js"></script>
+    <script src="js/learn3.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bondi.js"></script>
 
 </body>
 
