@@ -219,6 +219,8 @@ canvas {
     font-size: 30px !important;
     cursor: pointer;
     margin-bottom: 20px;
+    color: var(--green-color);
+    text-transform: capitalize;
 }
 
 
@@ -255,4 +257,60 @@ canvas {
 .finally {
     width: fit-content;
     margin: auto;
+}
+
+.example {
+    color: var(--yellow-color);
+    font-size: 20px;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+
+    @include medais("medium") {
+        flex-direction: column;
+    }
+}
+
+.example img {
+    width: 300px;
+    margin-left: 100px;
+    border-radius: 10px;
+
+    @include medais("medium") {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.step {
+    padding-left: 20px;
+}
+
+.locations {
+    border-top: 1px solid var(--h-color);
+}
+
+.locations .example {
+    border-bottom: 1px solid var(--h-color);
+}
+
+.uncase {
+    display: flex;
+    align-items: center;
+
+    @include medais("medium") {
+        flex-direction: column;
+    }
+
+    margin-top: 10px;
+}
+
+.uncase img {
+    width: 300px;
+    border-radius: 10px;
+
+    @include medais("medium") {
+        width: 100%;
+        margin-left: 0;
+    }
 }

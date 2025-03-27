@@ -213,6 +213,8 @@ canvas {
   font-size: 30px !important;
   cursor: pointer;
   margin-bottom: 20px;
+  color: var(--green-color);
+  text-transform: capitalize;
 }
 
 .bigsize:hover i {
@@ -245,4 +247,63 @@ canvas {
   width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+}
+
+.example {
+  color: var(--yellow-color);
+  font-size: 20px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .example {
+    flex-direction: column;
+  }
+}
+
+.example img {
+  width: 300px;
+  margin-left: 100px;
+  border-radius: 10px;
+}
+@media (max-width: 991px) {
+  .example img {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.step {
+  padding-left: 20px;
+}
+
+.locations {
+  border-top: 1px solid var(--h-color);
+}
+
+.locations .example {
+  border-bottom: 1px solid var(--h-color);
+}
+
+.uncase {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+@media (max-width: 991px) {
+  .uncase {
+    flex-direction: column;
+  }
+}
+
+.uncase img {
+  width: 300px;
+  border-radius: 10px;
+}
+@media (max-width: 991px) {
+  .uncase img {
+    width: 100%;
+    margin-left: 0;
+  }
 }/*# sourceMappingURL=main.css.map */
