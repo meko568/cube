@@ -209,7 +209,7 @@ canvas {
   border-radius: 10px;
 }
 
-.bigsize {
+.bigsize, .bigsize2 {
   font-size: 30px !important;
   cursor: pointer;
   margin-bottom: 20px;
@@ -217,7 +217,7 @@ canvas {
   text-transform: capitalize;
 }
 
-.bigsize:hover i {
+.bigsize:hover i, .bigsize2:hover i {
   animation: updown 0.5s infinite;
 }
 
@@ -235,11 +235,11 @@ canvas {
   padding: 10px;
 }
 
-.bigsize i {
+.bigsize i, .bigsize2 i {
   color: var(--orange);
 }
 
-.bigsize span {
+.bigsize span, .bigsize2 span {
   color: var(--orange);
 }
 
@@ -247,6 +247,8 @@ canvas {
   width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+  color: var(--green-color);
+  text-transform: capitalize;
 }
 
 .example {
@@ -276,13 +278,14 @@ canvas {
 
 .step {
   padding-left: 20px;
+  border-bottom: 1px solid var(--h-color);
 }
 
 .locations {
   border-top: 1px solid var(--h-color);
 }
 
-.locations .example {
+.locations .example:not(.last) {
   border-bottom: 1px solid var(--h-color);
 }
 
@@ -306,4 +309,13 @@ canvas {
     width: 100%;
     margin-left: 0;
   }
+}
+
+.bigsize2 {
+  color: var(--orange);
+  font-size: 20px !important;
+}
+
+.step-three .example:not(.last) {
+  border-bottom: 1px solid var(--h-color);
 }/*# sourceMappingURL=main.css.map */

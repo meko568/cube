@@ -257,6 +257,9 @@ canvas {
 .finally {
     width: fit-content;
     margin: auto;
+    color: var(--green-color);
+    text-transform: capitalize;
+
 }
 
 .example {
@@ -284,13 +287,14 @@ canvas {
 
 .step {
     padding-left: 20px;
+    border-bottom: 1px solid var(--h-color);
 }
 
 .locations {
     border-top: 1px solid var(--h-color);
 }
 
-.locations .example {
+.locations .example:not(.last) {
     border-bottom: 1px solid var(--h-color);
 }
 
@@ -313,4 +317,14 @@ canvas {
         width: 100%;
         margin-left: 0;
     }
+}
+
+.bigsize2 {
+    @extend .bigsize;
+    color: var(--orange);
+    font-size: 20px !important;
+}
+
+.step-three .example:not(.last) {
+    border-bottom: 1px solid var(--h-color);
 }
