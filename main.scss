@@ -325,6 +325,8 @@ canvas {
     font-size: 20px !important;
 }
 
-.step-three .example:not(.last) {
+.step-three .example:not(.last),
+.step-four .example:not(.last),
+.step-four {
     border-bottom: 1px solid var(--h-color);
 }
