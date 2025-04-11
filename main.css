@@ -318,6 +318,8 @@ canvas {
 
 .step-three .example:not(.last),
 .step-four .example:not(.last),
-.step-four {
+.step-four,
+.step-five .example:not(.last),
+.step-five {
   border-bottom: 1px solid var(--h-color);
 }/*# sourceMappingURL=main.css.map */
