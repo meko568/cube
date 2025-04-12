@@ -353,7 +353,31 @@ if (sizebtn1) {
 window.onload = function () {
     if (location.pathname === "/cube/shop.html") {
         if (localStorage.inner1) {
-            document.querySelector(".cart").innerHTML = localStorage.inner1
+            document.querySelector(".cart").innerHTML = localStorage.inner1;
+            let confirm = document.querySelector(".confirm")
+            confirm.onclick = function () {
+                let total = 0;
+                document.querySelectorAll(".sel .price").forEach(function (e) {
+                    let the = +e.children[2].innerHTML;
+                    total += the;
+                })
+                let buy = document.createElement("div");
+                buy.innerHTML = localStorage.inner1 + `<div class="total">total:${total}</div> <div class="buy">buy</div>`;
+                buy.className = "main-buy"
+                document.querySelector("body").appendChild(buy);
+                document.querySelector(".confirm").remove();
+                localStorage.removeItem("inner1");
+                document.querySelector(".sel").innerHTML = "";
+                document.querySelector(".shop").classList.add("none")
+                document.querySelector(".buy").onclick = function () {
+                    buy.remove()
+                    document.querySelector(".shop").classList.remove("none")
+                }
+                document.querySelector(".confirm").onclick = function () {
+                    buy.remove()
+                    document.querySelector(".shop").classList.remove("none")
+                }
+            }
         }
 
         let row = document.querySelector(".row")
