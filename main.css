@@ -320,6 +320,8 @@ canvas {
 .step-four .example:not(.last),
 .step-four,
 .step-five .example:not(.last),
-.step-five {
+.step-five,
+.step-six .example:not(.last),
+.step-six {
   border-bottom: 1px solid var(--h-color);
 }/*# sourceMappingURL=main.css.map */
