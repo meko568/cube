@@ -714,7 +714,7 @@ window.onload = function () {
 
 
 let email = document.querySelector(".email");
-let emailre = /\w+@\w+.(net|com)/;
+let emailre = /\w+@\w+\.(net|com)/;
 let namein = document.querySelector(".name")
 let pass = document.querySelector(".password");
 let passre = /\d{2}\s\d{8}/;
@@ -741,10 +741,12 @@ if (finish) {
             email.parentElement.classList.remove("requer")
             if (!emailre.test(email.value)) {
                 email.parentElement.classList.add("unvalid")
+                email.parentElement.classList.remove("requer")
                 valid2 = false;
             }
             if (emailre.test(email.value)) {
                 email.parentElement.classList.remove("unvalid")
+                email.parentElement.classList.remove("requer")
                 valid2 = true;
 
             }
@@ -838,16 +840,15 @@ if (finish) {
             localStorage.pass = pass.value;
         } else {
             if (valid1 === false) {
-
                 namein.parentElement.classList.add("requer")
             }
             if (valid2 === false) {
-
-                pass.parentElement.classList.add("requer")
+                console.log(valid2)
+                email.parentElement.classList.add("requer")
             }
             if (valid3 === false) {
 
-                email.parentElement.classList.add("requer");
+                pass.parentElement.classList.add("requer");
             }
         }
     }

@@ -30,6 +30,12 @@ body {
             @content;
         }
     }
+
+    @else if $media=="small" {
+        @media (max-width:767px) {
+            @content;
+        }
+    }
 }
 
 canvas {
@@ -251,7 +257,8 @@ canvas {
 }
 
 .bigsize span {
-    color: var(--orange)
+    color: var(--orange);
+    text-transform: none;
 }
 
 .finally {
@@ -269,7 +276,7 @@ canvas {
     display: flex;
     align-items: center;
 
-    @include medais("medium") {
+    @include medais("small") {
         flex-direction: column;
     }
 }
@@ -280,8 +287,11 @@ canvas {
     border-radius: 10px;
 
     @include medais("medium") {
-        width: 100%;
         margin-left: 0;
+    }
+
+    @include medais("small") {
+        width: 100%l
     }
 }
 
@@ -331,6 +341,11 @@ canvas {
 .step-five .example:not(.last),
 .step-five,
 .step-six .example:not(.last),
-.step-six {
+.step-six,
+.f2l .example:not(.last) {
     border-bottom: 1px solid var(--h-color);
+}
+
+.f2l .example {
+    padding: 10px 0;
 }

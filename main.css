@@ -241,6 +241,7 @@ canvas {
 
 .bigsize span, .bigsize2 span {
   color: var(--orange);
+  text-transform: none;
 }
 
 .finally {
@@ -258,7 +259,7 @@ canvas {
   display: flex;
   align-items: center;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   .example {
     flex-direction: column;
   }
@@ -271,8 +272,12 @@ canvas {
 }
 @media (max-width: 991px) {
   .example img {
-    width: 100%;
     margin-left: 0;
+  }
+}
+@media (max-width: 767px) {
+  .example img {
+    width: 100% l;
   }
 }
 
@@ -322,6 +327,11 @@ canvas {
 .step-five .example:not(.last),
 .step-five,
 .step-six .example:not(.last),
-.step-six {
+.step-six,
+.f2l .example:not(.last) {
   border-bottom: 1px solid var(--h-color);
+}
+
+.f2l .example {
+  padding: 10px 0;
 }/*# sourceMappingURL=main.css.map */
