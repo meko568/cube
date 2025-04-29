@@ -42,6 +42,10 @@ function rotateFace(face) {
 
     cubes1.forEach(cube => {
         if ((face === 'R' && cube.position.x > 0.5) ||
+            (face === 'r' && cube.position.x > -0.5) ||
+            (face === 'r\'' && cube.position.x > -0.5) ||
+            (face === 'l\'' && cube.position.x > 0.5) ||
+            (face === 'l' && cube.position.x > 0.5) ||
             (face === 'L' && cube.position.x < -0.5) ||
             (face === 'R\'' && cube.position.x > 0.5) ||
             (face === 'U\'' && cube.position.y > 0.5) ||
@@ -63,7 +67,11 @@ function rotateFace(face) {
 
     switch (face) {
         case 'R': axis.set(1, 0, 0); break;
+        case 'l': axis.set(1, 0, 0); break;
+        case 'l\'': axis.set(-1, 0, 0); break;
         case 'R\'': axis.set(-1, 0, 0); break;
+        case 'r\'': axis.set(-1, 0, 0); break;
+        case 'r': axis.set(1, 0, 0); break;
         case 'U\'': axis.set(0, -1, 0); break;
         case 'B\'': axis.set(0, 0, 1); break;
         case 'D\'': axis.set(0, -1, 0); break;

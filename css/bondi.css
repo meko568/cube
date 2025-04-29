@@ -102,9 +102,30 @@ nav {
     box-shadow: none !important;
 }
 
-.nav-link:hover {
+.nav-link {
+    position: relative;
+    width: fit-content;
+}
+
+ul .nav-link::before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background-color: var(--h-color);
+    left: -100%;
+    transition: .3s;
+    width: 0;
+    bottom: -5px;
+}
+
+ul .nav-link:hover {
     color: var(--green-color);
-    transform: scale(1.1);
+    transform: translateX(5px) !important;
+}
+
+ul .nav-link:hover::before {
+    width: 100%;
+    left: 0;
 }
 
 .themore a {
@@ -1101,4 +1122,8 @@ p.text-white-50:hover {
 .total {
     color: white;
     margin-bottom: 10px;
+}
+
+ul .active {
+    color: var(--green-color) !important;
 }

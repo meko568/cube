@@ -342,10 +342,25 @@ canvas {
 .step-five,
 .step-six .example:not(.last),
 .step-six,
-.f2l .example:not(.last) {
+.f2l .example:not(.last),
+.oll,
+.oll .example:not(.last),
+.pll,
+.pll .example:not(.last) {
     border-bottom: 1px solid var(--h-color);
 }
 
-.f2l .example {
+.f2l .example,
+.oll .example:not(.last),
+.pll,
+.pll .example:not(.last) {
     padding: 10px 0;
+}
+
+.example .bigsize {
+    width: 50%;
+}
+
+ul .active {
+    color: var(--green-color) !important;
 }
