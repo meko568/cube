@@ -1035,6 +1035,8 @@ p.text-white-50:hover {
 }
 
 .cart {
+    border-radius: 10px;
+    padding: 10px;
     background-color: #eee;
     width: 30%;
     text-align: center;
