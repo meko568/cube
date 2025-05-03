@@ -349,4 +349,12 @@ canvas {
 
 ul .active {
   color: var(--green-color) !important;
+}
+
+.container > .navbar-nav {
+  color: var(--orange);
+  align-items: center;
+  text-transform: capitalize;
+  flex-direction: row;
+  gap: 5px;
 }/*# sourceMappingURL=main.css.map */
