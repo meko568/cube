@@ -425,11 +425,14 @@ export class CubeEngine {
     let prevX = 0, prevY = 0;
     let autoRotate = this.opts.ambient;
 
+    this.canvas.style.touchAction = 'none';
+
     const onPointerDown = (e) => {
       isDragging = true;
       autoRotate = false;
       prevX = e.clientX;
       prevY = e.clientY;
+      try { this.canvas.setPointerCapture(e.pointerId); } catch (_) {}
     };
     const onPointerMove = (e) => {
       if (!isDragging) return;
@@ -441,10 +444,12 @@ export class CubeEngine {
       this.cubeGroup.rotation.x += dy * 0.01;
     };
     const onPointerUp = () => { isDragging = false; };
+    const onPointerCancel = () => { isDragging = false; };
 
     this.canvas.addEventListener('pointerdown', onPointerDown);
     window.addEventListener('pointermove', onPointerMove);
     window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerCancel);
 
     // Scroll zoom
     this.canvas.addEventListener('wheel', (e) => {
