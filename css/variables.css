@@ -1,0 +1,440 @@
+/**
+ * Cube Master — Design Token System
+ * Complete redesign: electric primary palette, algorithmic typography, cube-centric tokens
+ */
+
+:root {
+  /* ==========================================================================
+     COLOR PALETTE — Electric Primary System
+     ========================================================================== */
+
+  /* Core surfaces */
+  --color-ink: #0D0D0D;
+  --color-ink-hover: #161616;
+  --color-ink-elevated: #1A1A1A;
+  --color-paper: #FAFAF8;
+  --color-paper-hover: #F0EFEB;
+  --color-paper-elevated: #FFFFFF;
+
+  /* Electric accents — derived from cube face colors, amplified */
+  --color-electric-cyan: #00E5FF;      /* Primary: F/B face, active states, links */
+  --color-electric-cyan-dim: #00B8CC;  /* Hover/pressed */
+  --color-electric-cyan-glow: rgba(0, 229, 255, 0.35);
+  --color-electric-cyan-glow-strong: rgba(0, 229, 255, 0.6);
+
+  --color-electric-magenta: #FF006E;   /* Secondary: R/L face, prime moves, destructive */
+  --color-electric-magenta-dim: #CC0058;
+  --color-electric-magenta-glow: rgba(255, 0, 110, 0.35);
+
+  --color-electric-yellow: #FFD600;    /* Tertiary: U/D face, warnings, focus */
+  --color-electric-yellow-dim: #E6C100;
+  --color-electric-yellow-glow: rgba(255, 214, 0, 0.35);
+
+  /* Cube face colors — standard scheme, calibrated for contrast on ink/paper */
+  --color-cube-white: #FFFFFF;
+  --color-cube-yellow: #FFD600;
+  --color-cube-red: #FF006E;
+  --color-cube-orange: #FF6B00;
+  --color-cube-blue: #006EFF;
+  --color-cube-green: #00C853;
+
+  /* Cube face colors — high contrast variants */
+  --color-cube-white-hc: #FFFFFF;
+  --color-cube-yellow-hc: #FFEB3B;
+  --color-cube-red-hc: #FF1744;
+  --color-cube-orange-hc: #FF6D00;
+  --color-cube-blue-hc: #2979FF;
+  --color-cube-green-hc: #00E676;
+
+  /* Neutrals */
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-900: #0F172A;
+  --color-slate-950: #020617;
+
+  /* Semantic colors (map to palette per theme) */
+  --color-bg: var(--color-ink);
+  --color-bg-hover: var(--color-ink-hover);
+  --color-bg-elevated: var(--color-ink-elevated);
+  --color-bg-inverse: var(--color-paper);
+
+  --color-fg: var(--color-paper);
+  --color-fg-muted: var(--color-slate-300);
+  --color-fg-subtle: var(--color-slate-500);
+  --color-fg-inverse: var(--color-ink);
+
+  --color-accent: var(--color-electric-cyan);
+  --color-accent-dim: var(--color-electric-cyan-dim);
+  --color-accent-glow: var(--color-electric-cyan-glow);
+  --color-accent-glow-strong: var(--color-electric-cyan-glow-strong);
+
+  --color-accent-alt: var(--color-electric-magenta);
+  --color-accent-alt-dim: var(--color-electric-magenta-dim);
+  --color-accent-alt-glow: var(--color-electric-magenta-glow);
+
+  --color-accent-tertiary: var(--color-electric-yellow);
+  --color-accent-tertiary-dim: var(--color-electric-yellow-dim);
+  --color-accent-tertiary-glow: var(--color-electric-yellow-glow);
+
+  --color-border: var(--color-slate-700);
+  --color-border-subtle: var(--color-slate-800);
+  --color-border-focus: var(--color-electric-cyan);
+
+  /* Legacy aliases — used by older component styles (buttons.css, forms.css, etc.) */
+  --color-primary: var(--color-electric-cyan);
+  --color-secondary: var(--color-electric-magenta);
+  --color-text: var(--color-fg);
+  --color-text-muted: var(--color-fg-muted);
+  --color-bg-card: var(--color-card);
+  --color-bg-elevated-legacy: var(--color-bg-elevated);
+  --color-border-light: var(--color-slate-500);
+
+  --color-card: var(--color-ink-elevated);
+  --color-card-hover: var(--color-slate-800);
+  --color-card-border: var(--color-slate-700);
+
+  --color-badge-info: var(--color-electric-cyan);
+  --color-badge-easy: var(--color-cube-green);
+  --color-badge-medium: var(--color-electric-yellow);
+  --color-badge-hard: var(--color-electric-magenta);
+
+  /* Algorithm notation specific */
+  --color-notation-bg: var(--color-ink-elevated);
+  --color-notation-fg: var(--color-paper);
+  --color-notation-move: var(--color-electric-cyan);
+  --color-notation-move-prime: var(--color-electric-magenta);
+  --color-notation-move-double: var(--color-electric-yellow);
+  --color-notation-move-wide: var(--color-cube-orange);
+  --color-notation-move-slice: var(--color-cube-green);
+  --color-notation-active: var(--color-accent-glow-strong);
+  --color-notation-playhead: var(--color-electric-yellow);
+
+  /* ==========================================================================
+     TYPOGRAPHY — Syne Display + IBM Plex Mono Body + IBM Plex Sans UI
+     ========================================================================== */
+
+  /* Font families */
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Mono', monospace;
+  --font-ui: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+
+  /* Font weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* Fluid type scale using clamp() */
+  --text-display: clamp(3rem, 8vw, 6rem);
+  --text-display-lh: 1.05;
+  --text-display-ls: -0.03em;
+  --text-display-weight: var(--weight-bold);
+
+  --text-h1: clamp(2.25rem, 5vw, 3.5rem);
+  --text-h1-lh: 1.1;
+  --text-h1-ls: -0.02em;
+  --text-h1-weight: var(--weight-semibold);
+
+  --text-h2: clamp(1.75rem, 3.5vw, 2.5rem);
+  --text-h2-lh: 1.15;
+  --text-h2-ls: -0.01em;
+  --text-h2-weight: var(--weight-semibold);
+
+  --text-h3: 1.25rem;
+  --text-h3-lh: 1.3;
+  --text-h3-weight: var(--weight-semibold);
+
+  --text-body: 1rem;
+  --text-body-lh: 1.6;
+  --text-body-weight: var(--weight-regular);
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg-lh: 1.6;
+
+  --text-sm: 0.875rem;
+  --text-sm-lh: 1.5;
+
+  --text-xs: 0.75rem;
+  --text-xs-lh: 1.4;
+  --text-xs-weight: var(--weight-medium);
+  --text-xs-ls: 0.08em;
+  --text-xs-transform: uppercase;
+
+  /* Algorithm notation specific */
+  --text-algo: 1.125rem;
+  --text-algo-lh: 1.5;
+  --text-algo-weight: var(--weight-medium);
+  --text-algo-ls: 0.02em;
+  --text-algo-family: var(--font-body);
+
+  /* UI text */
+  --text-label: var(--text-xs);
+  --text-button: var(--text-sm);
+  --text-button-weight: var(--weight-medium);
+  --text-caption: var(--text-xs);
+
+  /* ==========================================================================
+     SPACING — 4px base unit, exponential scale
+     ========================================================================== */
+
+  --space-0: 0;
+  --space-px: 1px;
+  --space-05: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-28: 112px;
+  --space-32: 128px;
+  --space-36: 144px;
+  --space-40: 160px;
+  --space-48: 192px;
+  --space-56: 224px;
+  --space-64: 256px;
+
+  /* Semantic spacing */
+  --space-section: var(--space-24);
+  --space-section-lg: var(--space-32);
+  --space-section-xl: var(--space-40);
+  --space-component: var(--space-8);
+  --space-component-lg: var(--space-12);
+  --space-inline: var(--space-4);
+  --space-inline-lg: var(--space-6);
+
+  /* ==========================================================================
+     BORDER RADIUS
+     ========================================================================== */
+
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Component radii */
+  --radius-btn: var(--radius-md);
+  --radius-card: var(--radius-lg);
+  --radius-badge: var(--radius-full);
+  --radius-input: var(--radius-md);
+  --radius-cube-btn: var(--radius-sm);
+
+  /* ==========================================================================
+     SHADOWS & DEPTH — Layered, electric glow accents
+     ========================================================================== */
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.55);
+
+  /* Glow shadows for accent elements */
+  --shadow-glow: 0 0 24px var(--color-accent-glow);
+  --shadow-glow-strong: 0 0 48px var(--color-accent-glow-strong);
+  --shadow-glow-alt: 0 0 24px var(--color-accent-alt-glow);
+  --shadow-glow-tertiary: 0 0 24px var(--color-accent-tertiary-glow);
+
+  /* Card shadows */
+  --shadow-card: var(--shadow-md);
+  --shadow-card-hover: var(--shadow-lg);
+  --shadow-card-elevated: var(--shadow-xl);
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-border-focus);
+  --focus-ring-inset: inset 0 0 0 2px var(--color-border-focus);
+
+  /* ==========================================================================
+     BREAKPOINTS
+     ========================================================================== */
+
+  --bp-sm: 480px;
+  --bp-md: 640px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1440px;
+
+  /* Container max widths */
+  --container-sm: 640px;
+  --container-md: 1024px;
+  --container-lg: 1280px;
+  --container-xl: 1400px;
+
+  /* ==========================================================================
+     TRANSITIONS & ANIMATION
+     ========================================================================== */
+
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  --duration-instant: 0ms;
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-slow: 350ms;
+  --duration-slower: 500ms;
+  --duration-page: 600ms;
+
+  /* Component transitions */
+  --transition-fast: var(--duration-fast) var(--ease-out);
+  --transition-normal: var(--duration-normal) var(--ease-out);
+  --transition-slow: var(--duration-slow) var(--ease-out);
+  --transition-spring: var(--duration-slow) var(--ease-spring);
+  --transition-elastic: var(--duration-slower) var(--ease-elastic);
+
+  /* ==========================================================================
+     Z-INDEX SCALE
+     ========================================================================== */
+
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+  --z-cube-canvas: 10;
+  --z-cube-controls: 20;
+  --z-cube-overlay: 30;
+
+  /* ==========================================================================
+     CUBE ENGINE SPECIFIC TOKENS
+     ========================================================================== */
+
+  /* Cube sizing */
+  --cube-size-mobile: 280px;
+  --cube-size-tablet: 320px;
+  --cube-size-desktop: 380px;
+  --cube-size-hero: clamp(280px, 40vw, 480px);
+
+  /* Cube geometry */
+  --cube-cubie-size: 0.95;       /* Relative to face (0.95 = 5% gap) */
+  --cube-gap: 0.025;             /* Gap between cubies */
+  --cube-roundness: 0.12;        /* Corner rounding of cubies */
+
+  /* Cube colors (map to standard scheme) */
+  --cube-face-U: var(--color-cube-white);
+  --cube-face-D: var(--color-cube-yellow);
+  --cube-face-R: var(--color-cube-red);
+  --cube-face-L: var(--color-cube-orange);
+  --cube-face-F: var(--color-cube-green);
+  --cube-face-B: var(--color-cube-blue);
+
+  /* Cube animation */
+  --cube-move-duration: 350ms;
+  --cube-move-ease: var(--ease-elastic);
+  --cube-move-stagger: 50ms;
+  --cube-ambient-speed: 0.15;    /* Rotations per second */
+  --cube-hover-pause: true;
+
+  /* Cube control buttons */
+  --cube-btn-size: 44px;
+  --cube-btn-size-sm: 36px;
+  --cube-btn-gap: 8px;
+
+  /* ==========================================================================
+     ALGORITHM PLAYBACK TOKENS
+     ========================================================================== */
+
+  --algo-play-speed-slow: 0.5;
+  --algo-play-speed-normal: 1;
+  --algo-play-speed-fast: 2;
+  --algo-move-delay: var(--cube-move-duration);
+  --algo-highlight-duration: 200ms;
+  --algo-scrubber-height: 4px;
+  --algo-scrubber-handle: 16px;
+/* ==========================================================================
+   LEGACY ALIASES — old token names still used by some component styles.
+   Map to the new design-token system so undefined-var breakage can't happen.
+   ========================================================================== */
+:root {
+  /* Colors */
+  --color-bg-alt: var(--color-ink-hover);
+  --color-white: #ffffff;
+  --color-text-dark: var(--color-ink);
+  --color-success: var(--color-cube-green);
+  --color-warning: var(--color-electric-yellow);
+  --color-error: var(--color-electric-magenta);
+  --color-info: var(--color-electric-cyan);
+
+  /* Fonts */
+  --font-primary: var(--font-ui);
+  --font-mono: var(--font-body);
+
+  /* Font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: var(--text-sm);
+  --font-size-base: 1rem;
+  --font-size-lg: var(--text-body-lg);
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: clamp(1.75rem, 3vw, 2.25rem);
+  --font-size-4xl: clamp(2.25rem, 4vw, 3rem);
+  --font-size-5xl: clamp(2.75rem, 5vw, 3.75rem);
+  --font-size-6xl: clamp(3.5rem, 6vw, 4.5rem);
+
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: var(--weight-medium);
+  --font-weight-semibold: var(--weight-semibold);
+  --font-weight-bold: var(--weight-bold);
+  --font-weight-extrabold: 800;
+
+  /* Line heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  /* Spacing */
+  --space-xs: var(--space-1);
+  --space-sm: var(--space-2);
+  --space-md: var(--space-4);
+  --space-lg: var(--space-6);
+  --space-xl: var(--space-8);
+  --space-2xl: var(--space-12);
+  --space-3xl: var(--space-16);
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-padding: var(--space-4);
+  --header-height: 72px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}

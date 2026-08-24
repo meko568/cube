@@ -1,283 +1,371 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bondi.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Kumbh+Sans:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2300c8ff%22/><rect x=%2214%22 y=%2214%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%23fff%22/><rect x=%2253%22 y=%2214%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%23ff006e%22/><rect x=%2214%22 y=%2253%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%23ffd600%22/><rect x=%2253%22 y=%2253%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%2300c853%22/></svg>">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Advanced CFOP method: F2L cases, 57 OLL algorithms, 21 PLL algorithms with interactive 3D visualization and auto-play.">
+  <meta name="theme-color" content="#0D0D0D">
+  <title>Advanced CFOP — Cubit</title>
+  <link rel="canonical" href="https://meko568.github.io/cube/advanced.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cubit">
+  <meta property="og:url" content="https://meko568.github.io/cube/advanced.html">
+  <meta property="og:title" content="CFOP Method: F2L, OLL & PLL Algorithms Explained | Cubit">
+  <meta property="og:description" content="Advanced CFOP method: F2L cases, 57 OLL algorithms, 21 PLL algorithms with interactive 3D visualization and auto-play.">
+  <meta property="og:image" content="https://meko568.github.io/cube/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CFOP Method: F2L, OLL & PLL Algorithms Explained | Cubit">
+  <meta name="twitter:description" content="42 F2L cases, 57 OLL and 21 PLL algorithms with interactive 3D previews.">
+  <meta name="twitter:image" content="https://meko568.github.io/cube/images/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "The CFOP Method Explained: Cross, F2L, OLL and PLL",
+        "description": "Advanced CFOP method: F2L cases, 57 OLL algorithms, 21 PLL algorithms with interactive 3D visualization.",
+        "image": "https://meko568.github.io/cube/images/og-image.png",
+        "author": { "@type": "Organization", "name": "Cubit" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Cubit",
+          "logo": { "@type": "ImageObject", "url": "https://meko568.github.io/cube/images/og-image.png" }
+        },
+        "datePublished": "2026-08-22",
+        "dateModified": "2026-08-23",
+        "mainEntityOfPage": "https://meko568.github.io/cube/advanced.html",
+        "about": [
+          { "@type": "Thing", "name": "CFOP method" },
+          { "@type": "Thing", "name": "F2L" },
+          { "@type": "Thing", "name": "OLL" },
+          { "@type": "Thing", "name": "PLL" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://meko568.github.io/cube/" },
+          { "@type": "ListItem", "position": 2, "name": "Advanced CFOP", "item": "https://meko568.github.io/cube/advanced.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/i18n.css">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg pe-4 ps-4 sticky-top">
-        <div class="container">
-            <ul class="navbar-nav">
-                links :
-                <li class=" nav-item">
-                    <a class="nav-link" aria-current="page" href="#f2l">F2L</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#oll">OLL</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#pll">PLL</a>
-                </li>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="navbar" role="banner">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Cubit — Home">
+        <svg class="navbar__logo" viewBox="0 0 32 32" fill="none" aria-hidden="true" width="32" height="32">
+          <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 12h24M4 20h24M12 4v24M20 4v24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="navbar__title">Cubit</span>
+      </a>
+
+      <nav class="navbar__nav" role="navigation" aria-label="Main navigation">
+        <ul class="navbar__list">
+          <li><a href="learn.html" class="navbar__link">Learn</a></li>
+          <li><a href="beginner.html" class="navbar__link">Beginner</a></li>
+          <li><a href="advanced.html" class="navbar__link" aria-current="page">Advanced</a></li>
+          <li><a href="pro.html" class="navbar__link">Pro</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" aria-pressed="false">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="20" height="20">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="20" height="20">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <section class="hero section--lg" aria-labelledby="advanced-hero-title">
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__badge badge badge--medium">Level 03</span>
+          <h1 id="advanced-hero-title" class="hero__title display">Advanced CFOP</h1>
+          <p class="hero__subtitle section__subtitle body-lg">Cross, F2L, OLL, PLL — the speedcubing standard. 57 OLL + 21 PLL + intuitive F2L. All with interactive 3D playback.</p>
+          <nav class="progress-nav" aria-label="Learning progress">
+            <a href="learn.html" class="progress-nav__item">
+              <span class="progress-nav__number">01</span>
+              <span class="progress-nav__label">Learn</span>
+            </a>
+            <a href="beginner.html" class="progress-nav__item">
+              <span class="progress-nav__number">02</span>
+              <span class="progress-nav__label">Beginner</span>
+            </a>
+            <a href="advanced.html" class="progress-nav__item progress-nav__item--current" aria-current="step">
+              <span class="progress-nav__number">03</span>
+              <span class="progress-nav__label">Advanced</span>
+            </a>
+            <a href="pro.html" class="progress-nav__item">
+              <span class="progress-nav__number">04</span>
+              <span class="progress-nav__label">Pro</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+        <section class="section--lg" aria-labelledby="algo-search-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="algo-search-title" class="section__title">Search Algorithms</h2>
+          <p class="section__subtitle">Find any F2L, OLL, or PLL case by name, notation, or description.</p>
+        </header>
+        <div class="algo-search-bar">
+          <input id="algo-search" type="search" autocomplete="off" spellcheck="false"
+                 placeholder="Search algorithms &mdash; e.g. Sune, Ua perm, F2L 21..."
+                 aria-label="Search algorithms across F2L, OLL and PLL" />
+          <span id="algo-search-count" class="algo-search-count" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--lg section--alt" aria-labelledby="cfop-overview-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="cfop-overview-title" class="section__title">CFOP Stages</h2>
+          <p class="section__subtitle">Four stages, from cross to solved. Master each before moving on.</p>
+        </header>
+        <div class="grid grid--4 stagger">
+          <a href="#cross" class="cfop-card card">
+            <span class="cfop-card__number display">C</span>
+            <h3 class="cfop-card__title card__title">Cross</h3>
+            <p class="cfop-card__description card__description">Intuitive bottom cross in 8 moves avg. Color-neutral preferred.</p>
+          </a>
+          <a href="#f2l" class="cfop-card card">
+            <span class="cfop-card__number display">F2L</span>
+            <h3 class="cfop-card__title card__title">F2L</h3>
+            <p class="cfop-card__description card__description">42 standard cases. Pair corners/edges, insert to slots. 4 slots.</p>
+          </a>
+          <a href="#oll" class="cfop-card card">
+            <span class="cfop-card__number display">O</span>
+            <h3 class="cfop-card__title card__title">OLL</h3>
+            <p class="cfop-card__description card__description">57 algorithms orient last layer. Learn 2-look first (10 algs).</p>
+          </a>
+          <a href="#pll" class="cfop-card card">
+            <span class="cfop-card__number display">P</span>
+            <h3 class="cfop-card__title card__title">PLL</h3>
+            <p class="cfop-card__description card__description">21 algorithms permute last layer. Learn all for full CFOP.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="cross" class="section--lg" aria-labelledby="cross-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="cross-title" class="section__title">Cross</h2>
+          <p class="section__subtitle">The foundation of every solve. Plan in inspection, execute blind.</p>
+        </header>
+        <div class="cross-guide grid grid--2 stagger">
+          <div class="cross-guide__content">
+            <h3 class="cross-guide__title">Color-Neutral Cross</h3>
+            <p class="cross-guide__description">Start on any color. Best cross = fewest moves (avg 6–8). Look for easy edges during 15-second inspection.</p>
+            <ul class="cross-guide__list">
+              <li><strong>Opposite colors:</strong> White/Yellow, Red/Orange, Blue/Green</li>
+              <li><strong>Key technique:</strong> Keyhole / multi-slot for extra efficiency</li>
+              <li><strong>Practice:</strong> Solve cross blindfolded (just close eyes after inspection)</li>
             </ul>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars bar"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-lg-2 mb-lg-0 ms-lg-auto p-3">
-                    <li class="nav-item">
-                        <a class="nav-link ms-lg-5 me-4 " aria-current="page" href="main.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-4 active" href="lear.html">Learn</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-4" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-4 " href="settings.html">⚙️Settings</a>
-                    </li>
-                    <li class="nav-item themore">
-                        <a class="nav-link me-4 click">More Links</a>
-                        <div class="more d-flex align-items-center">
-                            <img src="images/megamenu.png" class="img-fluid">
-                            <ul class="links">
-                                <li><a class="nav-link text-capitalize" href="lear.html"><i
-                                            class="fa-regular fa-user"></i>
-                                        Cube Nation</a>
-                                </li>
-                                <li><a class="nav-link text-capitalize" href="beginner.html"><i
-                                            class="fas fa-child"></i>
-                                        Beginner</a>
-                                </li>
-                            </ul>
-                            <ul class="links">
-                                <li><a class="nav-link text-capitalize" href="advanced.html"><i
-                                            class="fas fa-user-graduate"></i>
-                                        Advanced</a>
-                                </li>
-                                <li><a class="nav-link text-capitalize" href="pro.html"><i
-                                            class="fas fa-chess-king"></i>
-                                        Pro</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <div class=" btn btn-primary p-2 rounded text-white text-uppercase m">
-                        <a href="login.html" class="nav-link p-0">log in</a>
-                    </div>
-                </ul>
+            <div class="algo-box card">
+              <div class="algo-box__header"><span class="algo-box__label caption">Example: White Cross (scramble)</span></div>
+              <div class="algo-box__notation" data-algo="F2 U L R' D2">
+                <span class="cube-notation__move">F2</span>
+                <span class="cube-notation__move">U</span>
+                <span class="cube-notation__move">L</span>
+                <span class="cube-notation__move">R'</span>
+                <span class="cube-notation__move">D2</span>
+              </div>
             </div>
+          </div>
+          <div class="cross-guide__visual">
+            <canvas id="cross-canvas" class="algo-canvas" data-algo="F2 U L R' D2" aria-label="Cross example visualization"></canvas>
+          </div>
         </div>
-    </nav>
-    <div class="requerments">
-        Requerments!
-        <a href="lear.html" class="nav-link">cube nation</a>
-        <a href="beginner.html" class="nav-link">become beginner</a>
-    </div>
-    <div class="step f2l" id="f2l">
-        <div class="main-title text-center mt-5">
-            <h1 class="text-capitalize ps-5 pe-5 m-auto">F2L</h1>
-            <p class="text-white-50 text-capitalize">First Two Layers</p>
-        </div>
-        <div class="bigsize text-capitalize">the F2L refers to first two layer <span>(you make the white corner
-                with
-                his edge and this will make you quicker)</span> </div>
-        <div class="some text-capitalize">
-            <div class="bigsize">cases
+      </div>
+    </section>
 
-                <i class="fa-solid fa-arrow-down"></i>
-            </div>
+    <section id="f2l" class="section--xl section--alt" aria-labelledby="f2l-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="f2l-title" class="section__title">F2L — First Two Layers</h2>
+          <p class="section__subtitle">42 standard cases. Intuitive pairing, then insert. Master these for sub-20.</p>
+        </header>
+        <div class="tabs" role="tablist" aria-label="F2L case categories">
+          <button role="tab" class="tab-btn tab-btn--active" aria-selected="true" aria-controls="f2l-basic" id="tab-basic">Basic (1–12)</button>
+          <button role="tab" class="tab-btn" aria-selected="false" aria-controls="f2l-advanced" id="tab-advanced">Advanced (13–42)</button>
+          <button role="tab" class="tab-btn" aria-selected="false" aria-controls="f2l-special" id="tab-special">Special Cases</button>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>U R U’ R’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l1.jpg"
-                alt="iamge" class="img-fluid">
+
+        <div role="tabpanel" id="f2l-basic" class="tab-panel tab-panel--active" aria-labelledby="tab-basic">
+          <div class="algo-grid stagger" id="f2l-basic-grid">
+            <!-- Populated by JS -->
+          </div>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>Y U’ L’ U L</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l2.jpg"
-                alt="iamge" class="img-fluid">
+
+        <div role="tabpanel" id="f2l-advanced" class="tab-panel" aria-labelledby="tab-advanced" hidden>
+          <div class="algo-grid stagger" id="f2l-advanced-grid">
+            <!-- Populated by JS -->
+          </div>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>R U R’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l4.jpg"
-                alt="iamge" class="img-fluid">
+
+        <div role="tabpanel" id="f2l-special" class="tab-panel" aria-labelledby="tab-special" hidden>
+          <div class="algo-grid stagger" id="f2l-special-grid">
+            <!-- Populated by JS -->
+          </div>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>U’ (R U R’) U (R U R’)</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l10.jpg"
-                alt="iamge" class="img-fluid">
+      </div>
+    </section>
+
+    <section id="oll" class="section--xl" aria-labelledby="oll-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="oll-title" class="section__title">OLL — Orientation of Last Layer</h2>
+          <p class="section__subtitle">57 cases to orient all yellow stickers up. Learn 2-look OLL (10 algs) first.</p>
+        </header>
+        <div class="tabs" role="tablist" aria-label="OLL case categories">
+          <button role="tab" class="tab-btn tab-btn--active" aria-selected="true" aria-controls="oll-2look" id="tab-oll-2look">2-Look OLL (10)</button>
+          <button role="tab" class="tab-btn" aria-selected="false" aria-controls="oll-full" id="tab-oll-full">Full OLL (57)</button>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>Y L’ U’ L</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l3.jpg"
-                alt="iamge" class="img-fluid">
+
+        <div role="tabpanel" id="oll-2look" class="tab-panel tab-panel--active" aria-labelledby="tab-oll-2look">
+          <h3 class="oll-section-title">Step 1: Orient Edges (3 algs)</h3>
+          <div class="algo-grid stagger" id="oll-edges-grid">
+            <!-- Populated by JS -->
+          </div>
+          <h3 class="oll-section-title mt-8">Step 2: Orient Corners (7 algs)</h3>
+          <div class="algo-grid stagger" id="oll-corners-grid">
+            <!-- Populated by JS -->
+          </div>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>U’ R U’ R’ U F’ U’ F</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l9.jpg"
-                alt="iamge" class="img-fluid">
+
+        <div role="tabpanel" id="oll-full" class="tab-panel" aria-labelledby="tab-oll-full" hidden>
+          <div class="algo-grid stagger" id="oll-full-grid">
+            <!-- Populated by JS -->
+          </div>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>U’ R U2 R’ U2 R U’ R’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l7.jpg"
-                alt="iamge" class="img-fluid">
+      </div>
+    </section>
+
+    <section id="pll" class="section--xl section--alt" aria-labelledby="pll-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="pll-title" class="section__title">PLL — Permutation of Last Layer</h2>
+          <p class="section__subtitle">21 cases to permute last layer pieces. All required for full CFOP.</p>
+        </header>
+        <div class="tabs" role="tablist" aria-label="PLL case categories">
+          <button role="tab" class="tab-btn tab-btn--active" aria-selected="true" aria-controls="pll-edges" id="tab-pll-edges">Edge Perms (4)</button>
+          <button role="tab" class="tab-btn" aria-selected="false" aria-controls="pll-corners" id="tab-pll-corners">Corner Perms (6)</button>
+          <button role="tab" class="tab-btn" aria-selected="false" aria-controls="pll-g" id="tab-pll-g">G-Perms (4)</button>
+          <button role="tab" class="tab-btn" aria-selected="false" aria-controls="pll-other" id="tab-pll-other">Other (7)</button>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>U’ (R U R’) U2 (R U’ R’)</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l5.jpg"
-                alt="iamge" class="img-fluid">
+
+        <div role="tabpanel" id="pll-edges" class="tab-panel tab-panel--active" aria-labelledby="tab-pll-edges">
+          <div class="algo-grid stagger" id="pll-edges-grid">
+            <!-- Populated by JS -->
+          </div>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>U’ r U’ R’ U R U r’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l6.jpg"
-                alt="iamge" class="img-fluid">
+
+        <div role="tabpanel" id="pll-corners" class="tab-panel" aria-labelledby="tab-pll-corners" hidden>
+          <div class="algo-grid stagger" id="pll-corners-grid">
+            <!-- Populated by JS -->
+          </div>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>r’ U2 R2 U R2′ U r</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l8.jpg"
-                alt="iamge" class="img-fluid">
+
+        <div role="tabpanel" id="pll-g" class="tab-panel" aria-labelledby="tab-pll-g" hidden>
+          <div class="algo-grid stagger" id="pll-g-grid">
+            <!-- Populated by JS -->
+          </div>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>U R U2 R’ U R U’ R’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l19.jpg"
-                alt="iamge" class="img-fluid">
+
+        <div role="tabpanel" id="pll-other" class="tab-panel" aria-labelledby="tab-pll-other" hidden>
+          <div class="algo-grid stagger" id="pll-other-grid">
+            <!-- Populated by JS -->
+          </div>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>R U’ R’ U2 R U R’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l21.jpg"
-                alt="iamge" class="img-fluid">
+      </div>
+    </section>
+
+    <section class="cta section--lg section--alt" aria-labelledby="advanced-cta-title">
+      <div class="container">
+        <div class="cta-card card">
+          <div class="cta-card__content">
+            <h2 id="advanced-cta-title" class="cta-card__title">Mastered CFOP?</h2>
+            <p class="cta-card__description">Sub-15 is within reach. Go Pro: finger tricks, One-Handed, Blindfolded, COLL/ZBLL, competition prep.</p>
+            <a href="pro.html" class="btn btn--primary btn--lg">Enter Pro Level</a>
+          </div>
         </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>Y’ U’ R’ U2 R U’ R’ U R</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l20.jpg"
-                alt="iamge" class="img-fluid">
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo" aria-label="Cubit — Home">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" width="32" height="32">
+              <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 12h24M4 20h24M12 4v24M20 4v24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>Cubit</span>
+          </a>
+          <p class="footer__tagline">Interactive Rubik's Cube learning for every level.</p>
         </div>
-        <div class="example last">
-            <div class="bigsize">alogrthim: <span>F’ L’ U2 L F</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/f2l22.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="bigsize">
-            if you don't see any case of these find corner and put it next to his edge and make alogrthim : <span>R U2
-                R’ U’</span> until you see one of these alogrthims
-        </div>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <div class="footer__nav-group">
+            <h4 class="footer__nav-title caption">Learn</h4>
+            <ul class="footer__nav-list">
+              <li><a href="learn.html" class="footer__nav-link">Cube Parts & Notation</a></li>
+              <li><a href="beginner.html" class="footer__nav-link">Beginner Method</a></li>
+              <li><a href="advanced.html" class="footer__nav-link">Advanced CFOP</a></li>
+              <li><a href="pro.html" class="footer__nav-link">Pro Techniques</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav-group">
+            <h4 class="footer__nav-title caption">Resources</h4>
+            <ul class="footer__nav-list">
+              <li><a href="#" class="footer__nav-link">Algorithm Database</a></li>
+              <li><a href="#" class="footer__nav-link">Practice Timer</a></li>
+              <li><a href="#" class="footer__nav-link">Notation Cheatsheet</a></li>
+              <li><a href="#" class="footer__nav-link">FAQ</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2025 Cubit. Built for cubers, by cubers.</p>
+      </div>
     </div>
-    <div class="step oll" id="oll">
-        <div class="main-title text-center mt-5">
-            <h1 class="text-capitalize ps-5 pe-5 m-auto">OLL</h1>
-            <p class="text-white-50 text-capitalize">Orientation of the Last Layer</p>
-        </div>
-        <div class="bigsize">cases
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>R U2 R2′ U’ R2 U’ R2 U2 R</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross5.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>(R U R’) U (R U’ R’) U (R U2 R’)</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross4.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>R U2 R’ U’ R U’ R’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross7.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>R2 D (R’ U2 R) D’ (R’ U2 R’)</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross1-edited.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>r U R’ U’ r’ F R F’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross-2-edited.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>F’ r U R’ U’ r’ F R</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross3-edited.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>F R U’ R’ U’ R U R’ F’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/fish4.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>(F U R) (U’ R’ F’)</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/pshape2-edited.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>(R U R’ U’) (R’ F R F’)</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/tshape2.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example last">
-            <div class="bigsize">alogrthim: <span>F (R U R’ U’) F’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/tshape1.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-    </div>
-    <div class="step pll" id="pll">
-        <div class="main-title text-center mt-5">
-            <h1 class="text-capitalize ps-5 pe-5 m-auto">PLL</h1>
-            <p class="text-white-50 text-capitalize">Permutation of the Last Layer</p>
-        </div>
-        <div class="bigsize">cases
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>l’ U R’ D2 R U’ R’ D2 R l</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/Aaperm.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>l’ R’ D2 R U R’ D2 R U’ l</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/Abperm.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>M2′ U’ M U2′ M’ U’ M2′</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/Ubperm.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>(M2′ U M2′) U2 (M2′ U M2′)</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/Hperm.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>M’ U M2′ U M2′ U M’ U2 M2′</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/zperm-e1673198085897.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-        <div class="example last">
-            <div class="bigsize">alogrthim: <span>F R U’ R’ U’ R U R F’ R U R’ U’ R’ F R F’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/Yperm.jpg"
-                alt="iamge" class="img-fluid">
-        </div>
-    </div>
-    <div class=" next-step btn btn-primary m-auto d-block mt-5"><a href="pro.html" class="nav-link">Pro</a>
-    </div>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/bondi.js"></script>
+  </footer>
+
+  <script type="module" src="js/advanced-data.js"></script>
+  <script type="module" src="js/advanced-cube.js"></script>
+  <script type="module" src="js/algo-search.js"></script>
+  <script type="module" src="js/theme.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
-
 </html>

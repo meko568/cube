@@ -1,0 +1,13 @@
+{
+  "name": "rubiks-cube-tutorial",
+  "version": "1.0.0",
+  "description": "Rubik's Cube tutorial website",
+  "scripts": {
+    "build:css": "sass main.scss:styles/dist/main.css --style=expanded",
+    "watch:css": "sass main.scss:styles/dist/main.css --watch --style=expanded",
+    "dev": "npm run watch:css"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}

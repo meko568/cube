@@ -1,0 +1,24 @@
+# Cubit
+
+> Cubit is a free interactive platform for learning to solve the Rubik's Cube. Every algorithm is rendered as a live 3D cube with real-time playback controls (speed 0.5×–2×, step forward/back, looping), and the curriculum progresses through four levels: fundamentals, beginner layer-by-layer, advanced CFOP, and pro techniques.
+
+Cubit covers cube anatomy and notation, a 6-step beginner method (Daisy → White Cross → White Corners → Second Layer → Yellow Cross → PLL), full CFOP (42 F2L cases, 57 OLL algorithms, 21 PLL algorithms), and pro-level skills including finger tricks, One-Handed solving, Blindfolded solving with 3-Style, COLL/ZBLL, and speedcubing competition preparation.
+
+## Main Pages
+
+- [Home](https://meko568.github.io/cube/): Overview of the Cubit platform, features, and learning path
+- [Learn — Cube Parts & Notation](https://meko568.github.io/cube/learn.html): Cube anatomy, face notation (U, D, L, R, F, B), and interactive practice drills
+- [Beginner Method](https://meko568.github.io/cube/beginner.html): 6-step layer-by-layer method to solve the cube for the first time
+- [Advanced CFOP](https://meko568.github.io/cube/advanced.html): Cross optimization, F2L, OLL, and PLL algorithm library with 3D preview
+- [Pro Techniques](https://meko568.github.io/cube/pro.html): Finger tricks, One-Handed, Blindfolded, COLL/ZBLL, and competition prep
+
+## Content Structure
+
+Each tutorial page follows the same structure: a direct answer summary at the top, question-formatted section headers matching real learner questions, numbered algorithm steps with notation, and FAQ blocks.
+
+## Key Facts
+
+- Beginner method: 6 steps, solvable in under 2 minutes after practice
+- CFOP: 4 stages (Cross, F2L, OLL, PLL); 78 total algorithms across F2L/OLL/PLL
+- Skill levels covered: 4 (Learn, Beginner, Advanced, Pro)
+- All algorithms include interactive 3D visualization with playback controls

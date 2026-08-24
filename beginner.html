@@ -1,387 +1,654 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>learn</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bondi.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Kumbh+Sans:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2300c8ff%22/><rect x=%2214%22 y=%2214%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%23fff%22/><rect x=%2253%22 y=%2214%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%23ff006e%22/><rect x=%2214%22 y=%2253%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%23ffd600%22/><rect x=%2253%22 y=%2253%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%2300c853%22/></svg>">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Beginner Rubik's Cube method: 6-step layer-by-layer solve with interactive 3D visualization and auto-play algorithms.">
+  <meta name="theme-color" content="#0D0D0D">
+  <title>Beginner Method — Cubit</title>
+  <link rel="canonical" href="https://meko568.github.io/cube/beginner.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cubit">
+  <meta property="og:url" content="https://meko568.github.io/cube/beginner.html">
+  <meta property="og:title" content="How to Solve a Rubik's Cube for Beginners: 6 Easy Steps | Cubit">
+  <meta property="og:description" content="Beginner Rubik's Cube method: 6-step layer-by-layer solve with interactive 3D visualization and auto-play algorithms.">
+  <meta property="og:image" content="https://meko568.github.io/cube/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Solve a Rubik's Cube for Beginners: 6 Easy Steps | Cubit">
+  <meta name="twitter:description" content="The 6-step layer-by-layer beginner method with interactive 3D visualization of every algorithm.">
+  <meta name="twitter:image" content="https://meko568.github.io/cube/images/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HowTo",
+        "name": "How to Solve a Rubik's Cube with the Beginner Layer-by-Layer Method",
+        "description": "A 6-step layer-by-layer method that solves the Rubik's Cube using about 5 short algorithms, designed for complete beginners.",
+        "image": "https://meko568.github.io/cube/images/og-image.png",
+        "totalTime": "PT2H",
+        "tool": [{ "@type": "HowToTool", "name": "A 3x3x3 Rubik's Cube" }],
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Make the Daisy", "text": "Place 4 white edge stickers around the yellow center on the top face. No algorithm needed — position them by intuition.", "url": "https://meko568.github.io/cube/beginner.html#step-1" },
+          { "@type": "HowToStep", "position": 2, "name": "Solve the White Cross", "text": "Flip each daisy petal down so white edges match the side centers, forming the white cross on the bottom layer.", "url": "https://meko568.github.io/cube/beginner.html#step-2" },
+          { "@type": "HowToStep", "position": 3, "name": "Solve the White Corners", "text": "Insert all 4 white corner pieces to complete the entire first layer.", "url": "https://meko568.github.io/cube/beginner.html#step-3" },
+          { "@type": "HowToStep", "position": 4, "name": "Solve the Second Layer", "text": "Insert the 4 middle-layer edge pieces using a short trigger algorithm.", "url": "https://meko568.github.io/cube/beginner.html#step-4" },
+          { "@type": "HowToStep", "position": 5, "name": "Make the Yellow Cross", "text": "Orient the top-layer edges into a yellow cross using Algorithm 1 (F R U R' U' F').", "url": "https://meko568.github.io/cube/beginner.html#step-5" },
+          { "@type": "HowToStep", "position": 6, "name": "Solve the Last Layer (OLL + PLL)", "text": "Orient then permute the yellow corners and edges with Algorithms 2–7 to finish the cube.", "url": "https://meko568.github.io/cube/beginner.html#step-6" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How long does it take a beginner to solve a Rubik's Cube?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most beginners finish their first successful solve in 10–30 minutes using this method, and drop under 2 minutes after a few hours of practice. For comparison, the official world record is 2.76 seconds, set by Teodor Zajder on February 8, 2026."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the easiest way to solve a Rubik's Cube?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The easiest way is the beginner layer-by-layer method taught on this page: it breaks the solve into 6 steps and uses only about 5 short algorithms. Advanced methods like CFOP cut your time roughly in half but require memorizing 78 algorithms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many algorithms do you need to memorize to solve the cube?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You need about 5 algorithms for the beginner method, most of them under 8 moves long. Full CFOP requires 78 algorithms: 42 F2L cases, 57 OLL cases, and 21 PLL cases."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What do the letters mean in Rubik's Cube algorithms?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each letter names a face you turn clockwise: U (up), D (down), L (left), R (right), F (front), B (back). An apostrophe (like R') means turn that face counterclockwise instead."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://meko568.github.io/cube/" },
+          { "@type": "ListItem", "position": 2, "name": "Beginner Method", "item": "https://meko568.github.io/cube/beginner.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/i18n.css">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg pe-4 ps-4 sticky-top">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars bar"></i>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="navbar" role="banner">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Cubit — Home">
+        <svg class="navbar__logo" viewBox="0 0 32 32" fill="none" aria-hidden="true" width="32" height="32">
+          <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 12h24M4 20h24M12 4v24M20 4v24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="navbar__title">Cubit</span>
+      </a>
+
+      <nav class="navbar__nav" role="navigation" aria-label="Main navigation">
+        <ul class="navbar__list">
+          <li><a href="learn.html" class="navbar__link">Learn</a></li>
+          <li><a href="beginner.html" class="navbar__link" aria-current="page">Beginner</a></li>
+          <li><a href="advanced.html" class="navbar__link">Advanced</a></li>
+          <li><a href="pro.html" class="navbar__link">Pro</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" aria-pressed="false">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="20" height="20">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="20" height="20">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <section class="hero section--lg" aria-labelledby="beginner-hero-title">
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__badge badge badge--easy">Level 02</span>
+          <h1 id="beginner-hero-title" class="hero__title display">Beginner Method</h1>
+          <p class="hero__subtitle section__subtitle body-lg">The classic 6-step layer-by-layer solve. Memorize 7 algorithms and solve any cube in ~2 minutes. Start here if you're new.</p>
+          <nav class="progress-nav" aria-label="Learning progress">
+            <a href="learn.html" class="progress-nav__item">
+              <span class="progress-nav__number">01</span>
+              <span class="progress-nav__label">Learn</span>
+            </a>
+            <a href="beginner.html" class="progress-nav__item progress-nav__item--current" aria-current="step">
+              <span class="progress-nav__number">02</span>
+              <span class="progress-nav__label">Beginner</span>
+            </a>
+            <a href="advanced.html" class="progress-nav__item">
+              <span class="progress-nav__number">03</span>
+              <span class="progress-nav__label">Advanced</span>
+            </a>
+            <a href="pro.html" class="progress-nav__item">
+              <span class="progress-nav__number">04</span>
+              <span class="progress-nav__label">Pro</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--lg" aria-labelledby="beginner-cube-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="beginner-cube-title" class="section__title">Interactive Cube</h2>
+          <p class="section__subtitle">Turn faces, explore the cube, practice notation. Click face buttons or drag the cube.</p>
+        </header>
+        <div class="cube-scene-wrapper">
+          <div class="cube-scene">
+            <div class="cube-scene__canvas" role="region" aria-label="Interactive 3D Rubik's Cube" tabindex="0">
+              <canvas id="beginner-cube-canvas" class="cube-canvas" data-interactive-cube aria-hidden="true"></canvas>
+              <div class="cube-scene__hint">
+                <kbd class="kbd">Drag</kbd> rotate
+                <kbd class="kbd">Scroll</kbd> zoom
+              </div>
+            </div>
+          </div>
+
+          <div class="cube-controls" role="group" aria-label="Face turn controls">
+            <button type="button" class="cube-btn cube-btn--u" data-move="U" aria-label="U — Up face clockwise">
+              <span class="cube-btn__face">U</span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-lg-2 mb-lg-0 ms-lg-auto p-3">
-                    <li class="nav-item">
-                        <a class="nav-link ms-lg-5 me-4 " aria-current="page" href="main.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-4 active" href="lear.html">Learn</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-4" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-4 " href="settings.html">⚙️Settings</a>
-                    </li>
-                    <li class="nav-item themore">
-                        <a class="nav-link me-4 click">More Links</a>
-                        <div class="more d-flex align-items-center">
-                            <img src="images/megamenu.png" class="img-fluid">
-                            <ul class="links">
-                                <li><a class="nav-link text-capitalize" href="lear.html"><i
-                                            class="fa-regular fa-user"></i>
-                                        Cube Nation</a>
-                                </li>
-                                <li><a class="nav-link text-capitalize" href="beginner.html"><i
-                                            class="fas fa-child"></i>
-                                        Beginner</a>
-                                </li>
-                            </ul>
-                            <ul class="links">
-                                <li><a class="nav-link text-capitalize" href="advanced.html"><i
-                                            class="fas fa-user-graduate"></i>
-                                        Advanced</a>
-                                </li>
-                                <li><a class="nav-link text-capitalize" href="pro.html"><i
-                                            class="fas fa-chess-king"></i>
-                                        Pro</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <div class=" btn btn-primary p-2 rounded text-white text-uppercase m">
-                        <a href="login.html" class="nav-link p-0">log in</a>
-                    </div>
-                </ul>
+            <button type="button" class="cube-btn cube-btn--u" data-move="U'" aria-label="U' — Up face counter-clockwise">
+              <span class="cube-btn__face">U'</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--r" data-move="R" aria-label="R — Right face clockwise">
+              <span class="cube-btn__face">R</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--r" data-move="R'" aria-label="R' — Right face counter-clockwise">
+              <span class="cube-btn__face">R'</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--f" data-move="F" aria-label="F — Front face clockwise">
+              <span class="cube-btn__face">F</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--f" data-move="F'" aria-label="F' — Front face counter-clockwise">
+              <span class="cube-btn__face">F'</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--l" data-move="L" aria-label="L — Left face clockwise">
+              <span class="cube-btn__face">L</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--l" data-move="L'" aria-label="L' — Left face counter-clockwise">
+              <span class="cube-btn__face">L'</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--b" data-move="B" aria-label="B — Back face clockwise">
+              <span class="cube-btn__face">B</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--b" data-move="B'" aria-label="B' — Back face counter-clockwise">
+              <span class="cube-btn__face">B'</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--d" data-move="D" aria-label="D — Down face clockwise">
+              <span class="cube-btn__face">D</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--d" data-move="D'" aria-label="D' — Down face counter-clockwise">
+              <span class="cube-btn__face">D'</span>
+            </button>
+          </div>
+
+          <div class="cube-controls" role="group" aria-label="Slice move controls (M / E / S)">
+            <button type="button" class="cube-btn cube-btn--rot" data-move="M" aria-label="M — Middle slice, follows L"><span class="cube-btn__face">M</span></button>
+            <button type="button" class="cube-btn cube-btn--rot" data-move="M'" aria-label="M' — Middle slice, follows L'"><span class="cube-btn__face">M'</span></button>
+            <button type="button" class="cube-btn cube-btn--rot" data-move="E" aria-label="E — Equatorial slice, follows D"><span class="cube-btn__face">E</span></button>
+            <button type="button" class="cube-btn cube-btn--rot" data-move="E'" aria-label="E' — Equatorial slice, follows D'"><span class="cube-btn__face">E'</span></button>
+            <button type="button" class="cube-btn cube-btn--rot" data-move="S" aria-label="S — Standing slice, follows F"><span class="cube-btn__face">S</span></button>
+            <button type="button" class="cube-btn cube-btn--rot" data-move="S'" aria-label="S' — Standing slice, follows F'"><span class="cube-btn__face">S'</span></button>
+          </div>
+
+          <div class="cube-controls cube-controls--rotation" role="group" aria-label="Whole-cube rotation controls (x / y / z)">
+            <button type="button" class="cube-btn cube-btn--rot" data-rotate="x" aria-label="x — rotate entire cube around R/L axis"><span class="cube-btn__face">x</span></button>
+            <button type="button" class="cube-btn cube-btn--rot" data-rotate="y" aria-label="y — rotate entire cube around U/D axis"><span class="cube-btn__face">y</span></button>
+            <button type="button" class="cube-btn cube-btn--rot" data-rotate="z" aria-label="z — rotate entire cube around F/B axis"><span class="cube-btn__face">z</span></button>
+          </div>
+
+          <div class="cube-controls__actions flex gap-2 cube-scene__actions">
+            <button type="button" class="btn btn--outline btn--sm" id="beginnerScrambleBtn" data-action="scramble" aria-label="Scramble cube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
+                <path d="M21 3a9 9 0 0 1 0 18M3 21a9 9 0 0 1 0-18M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+              Scramble
+            </button>
+            <button type="button" class="btn btn--primary btn--sm" id="beginnerResetBtn" data-action="reset" aria-label="Reset cube to solved">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+              </svg>
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--lg section--alt" aria-labelledby="method-overview-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="method-overview-title" class="section__title">The 6 Steps</h2>
+          <p class="section__subtitle">Solve layer by layer — no advanced concepts required.</p>
+        </header>
+        <div class="grid grid--3 stagger">
+          <a href="#step-1" class="step-card card">
+            <span class="step-card__number display">01</span>
+            <h3 class="step-card__title card__title">Daisy</h3>
+            <p class="step-card__description card__description">Place 4 white edge stickers around the yellow center.</p>
+          </a>
+          <a href="#step-2" class="step-card card">
+            <span class="step-card__number display">02</span>
+            <h3 class="step-card__title card__title">White Cross</h3>
+            <p class="step-card__description card__description">Flip daisy down to form the white cross on bottom.</p>
+          </a>
+          <a href="#step-3" class="step-card card">
+            <span class="step-card__number display">03</span>
+            <h3 class="step-card__title card__title">White Corners</h3>
+            <p class="step-card__description card__description">Solve all 4 white corner pieces.</p>
+          </a>
+          <a href="#step-4" class="step-card card">
+            <span class="step-card__number display">04</span>
+            <h3 class="step-card__title card__title">Second Layer</h3>
+            <p class="step-card__description card__description">Insert 4 middle-layer edges.</p>
+          </a>
+          <a href="#step-5" class="step-card card">
+            <span class="step-card__number display">05</span>
+            <h3 class="step-card__title card__title">Yellow Cross</h3>
+            <p class="step-card__description card__description">Form the yellow cross on top (Algorithm 1).</p>
+          </a>
+          <a href="#step-6" class="step-card card">
+            <span class="step-card__number display">06</span>
+            <h3 class="step-card__title card__title">Solve (OLL + PLL)</h3>
+            <p class="step-card__description card__description">Orient + permute yellow corners and edges (Algorithms 2–7).</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="step-1" class="algo-step section--lg" aria-labelledby="step-1-title">
+      <div class="container">
+        <div class="algo-step__grid">
+          <div class="algo-step__content">
+            <span class="algo-step__number caption">Step 01</span>
+            <h2 id="step-1-title" class="algo-step__title">Daisy</h2>
+            <p class="algo-step__description">Goal: 4 white edge stickers surrounding the <strong>yellow center</strong> (top face). This is the setup for the white cross.</p>
+            <ul class="algo-step__list">
+              <li>Hold the yellow center facing up.</li>
+              <li>Find white edge pieces (the ones with white).</li>
+              <li>Move each white edge to sit next to the yellow center.</li>
+              <li>No algorithm needed — just position them with intuition.</li>
+            </ul>
+            <div class="algo-step__hint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Look for the yellow center on top, build white petals around it.</span>
             </div>
-        </div>
-    </nav>
-    <div class="requerments">
-        Requerments!
-        <a href="lear.html" class="nav-link">Learning Cube Nation</a>
-    </div>
-    <div class="step-one step">
-        <div class="main-title text-center">
-            <h1 class="text-capitalize">step one</h1>
-            <p class="text-white-50 text-capitalize">making white cross</p>
-        </div>
-        <div class="first text-capitalize fs-3">first :making flower</div>
-        <div class="flower text-capitalize">
-            <div class="fs-4">you should make flower around yellow center with white edges</div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/white-flower-on-rubiks-cube.jpg"
-                alt="" class="img-fluid">
-        </div>
-    </div>
-    <div class="some text-capitalize">
-        <div class="bigsize">some cases
-
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <div class="images"><img
-                src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_800/https://learningtocube.com/wp-content/uploads/2022/12/white-piece-in-top-layer.jpg"
-                class="img-fluid">
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/white-corss-front-face.jpg"
-                alt="" class="img-fluid">
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/moving-white-layer-to-the-right.jpg"
-                alt="" class="img-fluid">
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/white-on-bottom-of-cube.jpg"
-                alt="" class="img-fluid">
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_800/https://learningtocube.com/wp-content/uploads/2022/12/white-side-on-bottom.jpg"
-                alt="" class="img-fluid">
-        </div>
-    </div>
-    <div class="second text-capitalize">
-        <div class="bigsize">second:<span> matching it with white center</span>
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <div class="images">
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_800/https://learningtocube.com/wp-content/uploads/2022/12/moving-white-side-of-rubiks-cube-to-bottom.jpg"
-                alt="" class="img-fluid">
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_800/https://learningtocube.com/wp-content/uploads/2022/12/sorting-the-green-white-edge.jpg"
-                alt="" class="img-fluid">
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_800/https://learningtocube.com/wp-content/uploads/2022/12/solving-ornage-white-piece.jpg"
-                alt="" class="img-fluid">
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_800/https://learningtocube.com/wp-content/uploads/2022/12/solving-blue-white-piece.jpg"
-                alt="" class="img-fluid">
-        </div>
-        <div class="finally fs-4 mt-2">finally you got it and make first step <i class="fa-solid fa-award"></i></div>
-    </div>
-    <div class="step-two step mt-5">
-        <div class="main-title text-center mt-5">
-            <h1 class="text-capitalize">step two</h1>
-            <p class="text-white-50 text-capitalize">making white corners</p>
-        </div>
-        <div class="corners">
-            <div class="bigsize">first : <span>the white corner should be between his centers by (U)</span></div>
-            <div class="example">
-                <div>corner which contains <span class="red">red</span>,<span class="blue">blue</span>
-                    should be between <span class="blue">blue corner</span>,<span class="red">red corner</span></div>
-                <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_768/https://learningtocube.com/wp-content/uploads/2022/12/white-corner-postions-768x576.jpg"
-                    alt="" class="img-fluid">
+          </div>
+          <div class="algo-step__visual">
+            <div class="algo-step__canvas-wrapper">
+              <canvas data-step-canvas="1" class="algo-step__canvas" aria-label="Daisy step visualization"></canvas>
             </div>
-            <div class="uncase">
-                <div>
-                    <div class="example">in some cases the white corner where is in bottom layer and shouldn't be in his
-                        centers</div>
-                    <div class="bigsize">soluation: <span>(R U R’ U’) one time then it will be in top layer and move it
-                            by (U) to be in
-                            his
-                            centers</span></div>
-                </div>
-                <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_768/https://learningtocube.com/wp-content/uploads/2022/12/incorect-corners-on-reubiks-cube-768x576.jpg"
-                    alt="" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="step-2" class="algo-step section--lg section--alt" aria-labelledby="step-2-title">
+      <div class="container">
+        <div class="algo-step__grid">
+          <div class="algo-step__content">
+            <span class="algo-step__number caption">Step 02</span>
+            <h2 id="step-2-title" class="algo-step__title">White Cross</h2>
+            <p class="algo-step__description">Goal: Flip the daisy down to form a white cross on the <strong>bottom face</strong> (D). Align each white edge with its center color.</p>
+            <ul class="algo-step__list">
+              <li>Turn each daisy edge down with F2, R2, L2, or B2.</li>
+              <li>Match the side sticker to the center color.</li>
+              <li>Repeat for all 4 edges until the cross is aligned.</li>
+            </ul>
+            <div class="algo-step__hint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Each edge's side color must line up with its matching center.</span>
             </div>
-            <div class="locations">
-                <div class="main-title">
-                    <h1 class="text-capitalize">positions</h1>
-                </div>
-                <div class="bigsize">first position</div>
-                <div class="example">
-                    <div class="bigsize">alogrthim: <span>(R U R’ U’) one Time</span></div>
-
-                    <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/WC-positon-1.jpg"
-                        alt="" class="img-fluid">
-                </div>
-
-                <div class="bigsize">second position</div>
-                <div class="example">
-                    <div class="bigsize">alogrthim: <span>(R U R’ U’) two Time</span></div>
-                    <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/wc-position-2.jpg"
-                        class=" img-fluid">
-                </div>
-                <div class="bigsize">third position</div>
-                <div class="example">
-                    <div class="bigsize">alogrthim: <span>(R U R’ U’) three Time</span></div>
-                    <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/wc-positon-3.jpg"
-                        class=" img-fluid">
-                </div>
-                <div class="bigsize">fourth position</div>
-                <div class="example">
-                    <div class="bigsize">alogrthim: <span>(R U R’ U’) four Time</span></div>
-                    <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/wc-postion-4.jpg"
-                        class=" img-fluid">
-                </div>
-                <div class="bigsize">fifth position</div>
-                <div class="example last">
-                    <div class="bigsize">alogrthim: <span>(U R U’ R’) one Time</span></div>
-                    <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/wc-postion-5.jpg"
-                        class=" img-fluid">
-
-                </div>
-                <div class="finally fs-4 mt-2">finally you got it and made second step <i class="fa-solid fa-award"></i>
-                    <i class="fa-solid fa-award"></i>
-                </div>
+          </div>
+          <div class="algo-step__visual">
+            <div class="algo-step__canvas-wrapper">
+              <canvas data-step-canvas="2" class="algo-step__canvas" aria-label="White Cross step visualization"></canvas>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="step-three step mt-5">
-        <div class="main-title text-center mt-5">
-            <h1 class="text-capitalize">step three</h1>
-            <p class="text-white-50 text-capitalize">making edges</p>
-        </div>
-        <div class="twocases">
-            <div class="bigsize">there is two cases in this step <i class="fa-solid fa-arrow-down"></i></div>
-            <div class="bigsize2">in this step you should find edge which dosen't in include yellow color and move it
-                by (U) to be between his centers</div>
-            <div class="bigsize">first case <i class="fa-solid fa-arrow-down"></i></div>
-            <div class="bigsize2">in this case if the top of edge's center in the right</div>
+      </div>
+    </section>
 
-            <div class="example">
-                <div class="bigsize">alogrthim: <span>U (R U R’ U’) y (L’U’ L U)</span></div>
-                <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/solve-the-right-slot.jpg"
-                    alt="" class="img-fluid">
+    <section id="step-3" class="algo-step section--lg" aria-labelledby="step-3-title">
+      <div class="container">
+        <div class="algo-step__grid">
+          <div class="algo-step__content">
+            <span class="algo-step__number caption">Step 03</span>
+            <h2 id="step-3-title" class="algo-step__title">White Corners</h2>
+            <p class="algo-step__description">Goal: Solve all 4 white corners. Find each white corner piece, position it above its target slot, then repeat the right-hand algorithm until it drops in.</p>
+            <div class="algo-box card">
+              <div class="algo-box__header">
+                <span class="algo-box__label caption">Right-Hand Algorithm</span>
+              </div>
+              <div class="algo-box__notation" data-algo="R U R' U'">
+                <span class="cube-notation__move">R</span>
+                <span class="cube-notation__move">U</span>
+                <span class="cube-notation__move cube-notation__move--prime">R'</span>
+                <span class="cube-notation__move">U'</span>
+              </div>
             </div>
-            <div class="bigsize">second case <i class="fa-solid fa-arrow-down"></i></div>
-            <div class="bigsize2">in this case if the top of edge's center in the left</div>
-            <div class="example last">
-                <div class="bigsize">alogrthim: <span>U’ (L’ U’ L U) y’ (R U R’ U’)</span></div>
-                <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/sole-left-edge.jpg"
-                    alt="" class="img-fluid">
+            <ul class="algo-step__list">
+              <li>Find a white corner; bring it above its correct slot on D.</li>
+              <li>If white faces right: do <span class="cube-notation">R U R' U'</span> once or twice.</li>
+              <li>If white faces front: do <span class="cube-notation">U R U' R'</span> once or twice.</li>
+            </ul>
+          </div>
+          <div class="algo-step__visual">
+            <div class="algo-step__canvas-wrapper">
+              <canvas data-step-canvas="3" class="algo-step__canvas" aria-label="White Corners step visualization"></canvas>
             </div>
+          </div>
         </div>
-        <div class="finally fs-4 mt-2">finally you got it and made third step <i class="fa-solid fa-award"></i> <i
-                class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-award"></i>
-        </div>
-    </div>
-    <div class="step-four step mt-5">
-        <div class="main-title text-center mt-5">
-            <h1 class="text-capitalize">step four</h1>
-            <p class="text-white-50 text-capitalize">making yellow cross</p>
-        </div>
-        <div class="bigsize">there is 3 cases in this step which <span>solved by 2 alogrthims</span> only <i
-                class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize mt-5">first case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize2">in this case you have 0 edges around yellow center</div>
+      </div>
+    </section>
 
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>F (R U R’ U’) F’ F (U R U’ R’) F’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/The-Dot.jpg"
-                alt="" class="img-fluid">
-        </div>
-        <div class="bigsize">second case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize2">in this case you have 2 edges around yellow center like right angle</div>
-
-        <div class="example">
-            <div class="bigsize">alogrthim: <span> F (U R U’ R’) F’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/the-half-cross.jpg"
-                alt="" class="img-fluid">
-        </div>
-        <div class="bigsize">third case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize2">in this case you have 2 edges around yellow center like horizontal bar</div>
-
-        <div class="example last">
-            <div class="bigsize">alogrthim: <span>F (R U R’ U’) F’ </span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/the-bar.jpg"
-                alt="" class="img-fluid">
-        </div>
-        <div class="finally fs-4 mt-2">finally you got it and made fourth step <i class="fa-solid fa-award"></i> <i
-                class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-award"></i>
-        </div>
-
-
-    </div>
-    <div class="step step-five">
-        <div class="main-title text-center mt-5">
-            <h1 class="text-capitalize">step five</h1>
-            <p class="text-white-50 text-capitalize">Orientation of the Last Layer (OLL)</p>
-        </div>
-        <div class="bigsize">in this step you make the yellow layer by <span>one alogrthim only </span></div>
-        <div class="bigsize mt-5">first case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize2">in this case you have 1 corner in the yellow layer <div class="bigsize">first put in the
-                bottom
-                and left of yellow layer</div>
-        </div>
-
-        <div class=" example">
-            <div class="bigsize">alogrthim: <span>R U R’ U R U2 R’</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross-6.jpg"
-                alt="" class="img-fluid">
-        </div>
-        <div class="bigsize mt-5">second case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize2">in this case you have 1 corner in the yellow layer <div class="bigsize">first put in the
-                bottom
-                and left of yellow layer</div>
-        </div>
-
-        <div class=" example">
-            <div class="bigsize">alogrthim: <span>(R U R’ U R U2 R’) two times</span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross7.jpg"
-                alt="" class="img-fluid">
-        </div>
-        <div class="bigsize mt-5">third case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize2">in this case you have 0 corner in the yellow layer
-        </div>
-
-        <div class=" example">
-            <div class="bigsize">alogrthim: <span>(R U R’ U R U2 R’) <div class="bigsize">then you will see <span>case
-                            one or two</span>
-                    </div></span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross5.jpg"
-                alt="" class="img-fluid">
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross4.jpg"
-                alt="" class="img-fluid">
-        </div>
-        <div class="bigsize mt-5">fourth case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize2">in this case you have 2 corner in the yellow layer
-            <div class="bigsize">first put the two corners in the top like the second image</div>
-        </div>
-
-        <div class=" example">
-            <div class="bigsize">alogrthim: <span>(R U R’ U R U2 R’) <div class="bigsize">then you will see
-                        <span>case
-                            three</span>
-                    </div></span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross-2-edited.jpg"
-                alt="" class="img-fluid">
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross1-edited.jpg"
-                alt="" class="img-fluid">
-        </div>
-        <div class="bigsize mt-5">fifth case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize2">in this case you have 2 corner in the yellow layer
-        </div>
-
-        <div class=" example last">
-            <div class="bigsize">alogrthim: <span>(R U R’ U R U2 R’) <div class="bigsize">then you will see
-                        <span>case
-                            four</span>
-                    </div></span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/cross3-edited.jpg"
-                alt="" class="img-fluid">
-        </div>
-        <div class="finally fs-4 mt-2">finally you got it and made fifth step <i class="fa-solid fa-award"></i> <i
-                class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-award"></i>
-        </div>
-    </div>
-    <div class="step step-six">
-        <div class="main-title text-center mt-5">
-            <h1 class="text-capitalize">step six</h1>
-            <p class="text-white-50 text-capitalize">Permutation of the Last Layer (PLL)</p>
-        </div>
-        <div class="bigsize">in this step you finish the yellow layer</div>
-        <div class="bigsize mt-5">first case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize">in this case you have 2 corner in the yellow layer
-            <div class="bigsize2">first put the two corners on the left like image but it's not important to be same in
-                anohter corners and edges just we have to have 2 corner and if you see this case make the alogrthim
-                until you see the case (the image is just example there are many cases)</div>
-        </div>
-
-        <div class="example">
-            <div class="bigsize">alogrthim: <span>(R U R’ U’) R’ F R2 U’ R’ U’ (R U R’ F’)<div class="bigsize2">then you
-                        will see case two
-                    </div></span></div>
-            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/Tperm.jpg"
-                alt="" class="img-fluid">
-        </div>
-        <div class="bigsize mt-5">second case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize">in this case the remaining is three edges
-            <div class=" example">
-                <div class="bigsize">alogrthim: <span>M2′ U M U2 M’ U M2′</span></div>
-                <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/Uaperm.jpg"
-                    alt="" class="img-fluid">
+    <section id="step-4" class="algo-step section--lg section--alt" aria-labelledby="step-4-title">
+      <div class="container">
+        <div class="algo-step__grid">
+          <div class="algo-step__content">
+            <span class="algo-step__number caption">Step 04</span>
+            <h2 id="step-4-title" class="algo-step__title">Second Layer</h2>
+            <p class="algo-step__description">Goal: Insert 4 middle-layer edges into the second (E) layer. Use one of two "sexy-sledge" algorithms depending on edge direction.</p>
+            <div class="algo-box card">
+              <div class="algo-box__header">
+                <span class="algo-box__label caption">Left Insert (edge goes left)</span>
+              </div>
+              <div class="algo-box__notation" data-algo="U' L' U L U F U' F'">
+                <span class="cube-notation__move">U'</span>
+                <span class="cube-notation__move">L'</span>
+                <span class="cube-notation__move">U</span>
+                <span class="cube-notation__move">L</span>
+                <span class="cube-notation__move">U</span>
+                <span class="cube-notation__move">F</span>
+                <span class="cube-notation__move">U'</span>
+                <span class="cube-notation__move">F'</span>
+              </div>
             </div>
-        </div>
-        <div class="bigsize mt-5">third case <i class="fa-solid fa-arrow-down"></i></div>
-        <div class="bigsize">in this case the remaining is three edges too
-            <div class="last example">
-                <div class="bigsize">alogrthim: <span>(M2′ U M U2 M’ U M2′) two times</span></div>
-                <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_512/https://learningtocube.com/wp-content/uploads/2022/12/Ubperm.jpg"
-                    alt="" class="img-fluid">
+            <div class="algo-box card">
+              <div class="algo-box__header">
+                <span class="algo-box__label caption">Right Insert (edge goes right)</span>
+              </div>
+              <div class="algo-box__notation" data-algo="U R U' R' U' F' U F">
+                <span class="cube-notation__move">U</span>
+                <span class="cube-notation__move">R</span>
+                <span class="cube-notation__move">U'</span>
+                <span class="cube-notation__move">R'</span>
+                <span class="cube-notation__move">U'</span>
+                <span class="cube-notation__move">F'</span>
+                <span class="cube-notation__move">U</span>
+                <span class="cube-notation__move">F</span>
+              </div>
             </div>
+            <ul class="algo-step__list">
+              <li>Find an edge in the top layer with no yellow.</li>
+              <li>Match its side color to the center, note which way it points.</li>
+              <li>Apply the left or right insert algorithm.</li>
+            </ul>
+          </div>
+          <div class="algo-step__visual">
+            <div class="algo-step__canvas-wrapper">
+              <canvas data-step-canvas="4" class="algo-step__canvas" aria-label="Second Layer step visualization"></canvas>
+            </div>
+          </div>
         </div>
-        <div class="finally fs-4 mt-2">finally you got it and made sixth step and solve the cube <i
-                class="fa-solid fa-award"></i> <i class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-award"></i>
-            <i class="fa-solid fa-trophy"></i>
-        </div>
-    </div>
-    <div class=" next-step btn btn-primary m-auto d-block mt-5"><a href="advanced.html" class="nav-link">Advanced</a>
-    </div>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/bondi.js"></script>
+      </div>
+    </section>
 
+    <section id="step-5" class="algo-step section--lg" aria-labelledby="step-5-title">
+      <div class="container">
+        <div class="algo-step__grid">
+          <div class="algo-step__content">
+            <span class="algo-step__number caption">Step 05</span>
+            <h2 id="step-5-title" class="algo-step__title">Yellow Cross</h2>
+            <p class="algo-step__description">Goal: Form a yellow cross on top (U). Yellow corners don't need to be oriented yet — just the cross shape.</p>
+            <div class="algo-box card">
+              <div class="algo-box__header">
+                <span class="algo-box__label caption">Algorithm 1 — Yellow Cross</span>
+              </div>
+              <div class="algo-box__notation" data-algo="F R U R' U' F'">
+                <span class="cube-notation__move">F</span>
+                <span class="cube-notation__move">R</span>
+                <span class="cube-notation__move">U</span>
+                <span class="cube-notation__move">R'</span>
+                <span class="cube-notation__move">U'</span>
+                <span class="cube-notation__move">F'</span>
+              </div>
+            </div>
+            <ul class="algo-step__list">
+              <li>Dot (0 yellow edges): do Algorithm 1 once → L-shape.</li>
+              <li>L-shape: orient toward top-left, do Algorithm 1 → Line.</li>
+              <li>Line (horizontal): do Algorithm 1 → Cross.</li>
+            </ul>
+          </div>
+          <div class="algo-step__visual">
+            <div class="algo-step__canvas-wrapper">
+              <canvas data-step-canvas="5" class="algo-step__canvas" aria-label="Yellow Cross step visualization"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="step-6" class="algo-step section--lg section--alt" aria-labelledby="step-6-title">
+      <div class="container">
+        <div class="algo-step__grid">
+          <div class="algo-step__content">
+            <span class="algo-step__number caption">Step 06</span>
+            <h2 id="step-6-title" class="algo-step__title">Yellow Face (OLL)</h2>
+            <p class="algo-step__description">Goal: Make the entire top face yellow. Two algorithms — Sune and Anti-Sune — handle every corner case.</p>
+
+            <div class="algo-box card">
+              <div class="algo-box__header"><span class="algo-box__label caption">Algorithm 2 — OLL (Sune)</span></div>
+              <div class="algo-box__notation" data-algo="R U R' U R U2 R'">
+                <span class="cube-notation__move">R</span><span class="cube-notation__move">U</span><span class="cube-notation__move">R'</span><span class="cube-notation__move">U</span><span class="cube-notation__move">R</span><span class="cube-notation__move">U2</span><span class="cube-notation__move">R'</span>
+              </div>
+            </div>
+
+            <div class="algo-box card">
+              <div class="algo-box__header"><span class="algo-box__label caption">Algorithm 3 — OLL (Anti-Sune)</span></div>
+              <div class="algo-box__notation" data-algo="R' U' R U' R' U2 R">
+                <span class="cube-notation__move">R'</span><span class="cube-notation__move">U'</span><span class="cube-notation__move">R</span><span class="cube-notation__move">U'</span><span class="cube-notation__move">R'</span><span class="cube-notation__move">U2</span><span class="cube-notation__move">R</span>
+              </div>
+            </div>
+
+            <ul class="algo-step__list">
+              <li>If yellow not all up: use Sune or Anti-Sune (Algorithms 2–3).</li>
+              <li>Yellow corners don't need to be in the right place yet — only facing up.</li>
+              <li>Rotate the top layer and repeat Sune until the whole top face is yellow.</li>
+            </ul>
+          </div>
+          <div class="algo-step__visual">
+            <div class="algo-step__canvas-wrapper">
+              <canvas data-step-canvas="6" class="algo-step__canvas" aria-label="OLL step visualization"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="step-7" class="algo-step section--lg" aria-labelledby="step-7-title">
+      <div class="container">
+        <div class="algo-step__grid">
+          <div class="algo-step__content">
+            <span class="algo-step__number caption">Step 07</span>
+            <h2 id="step-7-title" class="algo-step__title">Permute Last Layer (PLL)</h2>
+            <p class="algo-step__description">Goal: With the yellow face up, move each last-layer piece to its correct spot. Three algorithms finish the cube.</p>
+
+            <div class="algo-box card">
+              <div class="algo-box__header"><span class="algo-box__label caption">Algorithm 4 — PLL (Ua Perm)</span></div>
+              <div class="algo-box__notation" data-algo="R U' R U R U R U' R' U' R2">
+                <span class="cube-notation__move">R</span><span class="cube-notation__move">U'</span><span class="cube-notation__move">R</span><span class="cube-notation__move">U</span><span class="cube-notation__move">R</span><span class="cube-notation__move">U</span><span class="cube-notation__move">R</span><span class="cube-notation__move">U'</span><span class="cube-notation__move">R'</span><span class="cube-notation__move">U'</span><span class="cube-notation__move">R2</span>
+              </div>
+            </div>
+
+            <div class="algo-box card">
+              <div class="algo-box__header"><span class="algo-box__label caption">Algorithm 5 — PLL (Ub Perm)</span></div>
+              <div class="algo-box__notation" data-algo="R2 U R U R' U' R' U' R' U R'">
+                <span class="cube-notation__move">R2</span><span class="cube-notation__move">U</span><span class="cube-notation__move">R</span><span class="cube-notation__move">U</span><span class="cube-notation__move">R'</span><span class="cube-notation__move">U'</span><span class="cube-notation__move">R'</span><span class="cube-notation__move">U'</span><span class="cube-notation__move">R'</span><span class="cube-notation__move">U</span><span class="cube-notation__move">R'</span>
+              </div>
+            </div>
+
+            <div class="algo-box card">
+              <div class="algo-box__header"><span class="algo-box__label caption">Algorithm 6 — Corner Cycle (Clockwise)</span></div>
+              <div class="algo-box__notation" data-algo="R' F R' B2 R F' R' B2 R2">
+                <span class="cube-notation__move cube-notation__move--prime">R'</span><span class="cube-notation__move">F</span><span class="cube-notation__move cube-notation__move--prime">R'</span><span class="cube-notation__move">B2</span><span class="cube-notation__move">R</span><span class="cube-notation__move cube-notation__move--prime">F'</span><span class="cube-notation__move cube-notation__move--prime">R'</span><span class="cube-notation__move">B2</span><span class="cube-notation__move">R2</span>
+              </div>
+            </div>
+
+            <div class="algo-box card">
+              <div class="algo-box__header"><span class="algo-box__label caption">Algorithm 7 — Corner Cycle (Counter-Clockwise)</span></div>
+              <div class="algo-box__notation" data-algo="R2 B2 R F R' B2 R F' R">
+                <span class="cube-notation__move">R2</span><span class="cube-notation__move">B2</span><span class="cube-notation__move">R</span><span class="cube-notation__move">F</span><span class="cube-notation__move cube-notation__move--prime">R'</span><span class="cube-notation__move">B2</span><span class="cube-notation__move">R</span><span class="cube-notation__move cube-notation__move--prime">F'</span><span class="cube-notation__move">R</span>
+              </div>
+            </div>
+
+            <ul class="algo-step__list">
+              <li>Corners come first: turn the top layer until one corner sits in its correct place (its side colors match).</li>
+              <li>Hold that corner at the front-left and apply Algorithm 6 (or 7 for the opposite direction) until every corner is solved.</li>
+              <li>Then solve the edges: hold any solved edge at the back and use Algorithm 4 or 5 (Ua/Ub perm) until they match.</li>
+            </ul>
+            <div class="algo-step__hint">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2"/>
+                <path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Solved! If two pieces are swapped, apply the matching algorithm once more.</span>
+            </div>
+          </div>
+          <div class="algo-step__visual">
+            <div class="algo-step__canvas-wrapper">
+              <canvas data-step-canvas="7" class="algo-step__canvas" aria-label="PLL step visualization"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq section--lg" aria-labelledby="beginner-faq-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="beginner-faq-title" class="section__title">Beginner Method FAQ</h2>
+          <p class="section__subtitle">Direct answers to the questions new cubers ask most.</p>
+        </header>
+        <div class="grid grid--2 stagger">
+          <article class="card">
+            <h3 class="card__title">How long does it take a beginner to solve a Rubik's Cube?</h3>
+            <p class="card__description">Most beginners finish their first successful solve in 10–30 minutes using this method, and drop under 2 minutes after a few hours of practice. For comparison, the official world record is 2.76 seconds, set by Teodor Zajder on February 8, 2026.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">What is the easiest way to solve a Rubik's Cube?</h3>
+            <p class="card__description">The easiest way is the beginner layer-by-layer method on this page: it breaks the solve into 6 steps and uses only about 5 short algorithms. Advanced methods like CFOP cut your time roughly in half but require memorizing 78 algorithms.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">How many algorithms do you need to memorize to solve the cube?</h3>
+            <p class="card__description">You need about 5 algorithms for the beginner method, most of them under 8 moves long. Full CFOP requires 78 algorithms: 42 F2L cases, 57 OLL cases, and 21 PLL cases.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">What do the letters mean in Rubik's Cube algorithms?</h3>
+            <p class="card__description">Each letter names a face you turn clockwise: U (up), D (down), L (left), R (right), F (front), B (back). An apostrophe (like R') means turn that face counterclockwise instead.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta section--lg section--alt" aria-labelledby="beginner-cta-title">
+      <div class="container">
+        <div class="cta-card card">
+          <div class="cta-card__content">
+            <h2 id="beginner-cta-title" class="cta-card__title">Solved your first cube?</h2>
+            <p class="cta-card__description">You've got the fundamentals. Take the next step: Advanced CFOP cuts your solve time in half with smarter algorithms.</p>
+            <a href="advanced.html" class="btn btn--primary btn--lg">Explore Advanced CFOP</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo" aria-label="Cubit — Home">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" width="32" height="32">
+              <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 12h24M4 20h24M12 4v24M20 4v24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>Cubit</span>
+          </a>
+          <p class="footer__tagline">Interactive Rubik's Cube learning for every level.</p>
+        </div>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <div class="footer__nav-group">
+            <h4 class="footer__nav-title caption">Learn</h4>
+            <ul class="footer__nav-list">
+              <li><a href="learn.html" class="footer__nav-link">Cube Parts & Notation</a></li>
+              <li><a href="beginner.html" class="footer__nav-link">Beginner Method</a></li>
+              <li><a href="advanced.html" class="footer__nav-link">Advanced CFOP</a></li>
+              <li><a href="pro.html" class="footer__nav-link">Pro Techniques</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav-group">
+            <h4 class="footer__nav-title caption">Resources</h4>
+            <ul class="footer__nav-list">
+              <li><a href="#" class="footer__nav-link">Algorithm Database</a></li>
+              <li><a href="#" class="footer__nav-link">Practice Timer</a></li>
+              <li><a href="#" class="footer__nav-link">Notation Cheatsheet</a></li>
+              <li><a href="#" class="footer__nav-link">FAQ</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2025 Cubit. Built for cubers, by cubers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/beginner-cube.js"></script>
+  <script type="module" src="js/learn-cube.js"></script>
+  <script type="module" src="js/theme.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
-
 </html>

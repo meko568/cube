@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%2300c8ff%22/><rect x=%2214%22 y=%2214%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%23fff%22/><rect x=%2253%22 y=%2214%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%23ff006e%22/><rect x=%2214%22 y=%2253%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%23ffd600%22/><rect x=%2253%22 y=%2253%22 width=%2233%22 height=%2233%22 rx=%225%22 fill=%22%2300c853%22/></svg>">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Rubik's Cube fundamentals: cube anatomy, notation, and interactive 3D practice. Start your solving journey here.">
+  <meta name="theme-color" content="#0D0D0D">
+  <title>Learn — Cubit</title>
+  <link rel="canonical" href="https://meko568.github.io/cube/learn.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cubit">
+  <meta property="og:url" content="https://meko568.github.io/cube/learn.html">
+  <meta property="og:title" content="Rubik's Cube Anatomy & Notation for Beginners | Cubit">
+  <meta property="og:description" content="Learn Rubik's Cube fundamentals: cube anatomy, notation, and interactive 3D practice. Start your solving journey here.">
+  <meta property="og:image" content="https://meko568.github.io/cube/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rubik's Cube Anatomy & Notation for Beginners | Cubit">
+  <meta name="twitter:description" content="Cube parts, face notation (U, D, L, R, F, B) and interactive practice drills.">
+  <meta name="twitter:image" content="https://meko568.github.io/cube/images/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Rubik's Cube Anatomy and Notation: The Fundamentals",
+        "description": "Learn Rubik's Cube fundamentals: cube anatomy, notation, and interactive 3D practice.",
+        "image": "https://meko568.github.io/cube/images/og-image.png",
+        "author": { "@type": "Organization", "name": "Cubit" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Cubit",
+          "logo": { "@type": "ImageObject", "url": "https://meko568.github.io/cube/images/og-image.png" }
+        },
+        "datePublished": "2026-08-21",
+        "dateModified": "2026-08-23",
+        "mainEntityOfPage": "https://meko568.github.io/cube/learn.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://meko568.github.io/cube/" },
+          { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://meko568.github.io/cube/learn.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/i18n.css">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="navbar" role="banner">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Cubit — Home">
+        <svg class="navbar__logo" viewBox="0 0 32 32" fill="none" aria-hidden="true" width="32" height="32">
+          <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 12h24M4 20h24M12 4v24M20 4v24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="navbar__title">Cubit</span>
+      </a>
+
+      <nav class="navbar__nav" role="navigation" aria-label="Main navigation">
+        <ul class="navbar__list">
+          <li><a href="learn.html" class="navbar__link" aria-current="page">Learn</a></li>
+          <li><a href="beginner.html" class="navbar__link">Beginner</a></li>
+          <li><a href="advanced.html" class="navbar__link">Advanced</a></li>
+          <li><a href="pro.html" class="navbar__link">Pro</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" aria-pressed="false">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="20" height="20">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="20" height="20">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <section class="hero section--lg" aria-labelledby="learn-hero-title">
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__badge badge badge--info">Start Here</span>
+          <h1 id="learn-hero-title" class="hero__title display">Learn the Cube</h1>
+          <p class="hero__subtitle section__subtitle body-lg">Master the fundamentals — cube anatomy, standard notation, and your first moves — all with an interactive 3D cube.</p>
+          <nav class="progress-nav" aria-label="Learning progress">
+            <a href="learn.html" class="progress-nav__item progress-nav__item--current" aria-current="step">
+              <span class="progress-nav__number">01</span>
+              <span class="progress-nav__label">Learn</span>
+            </a>
+            <a href="beginner.html" class="progress-nav__item">
+              <span class="progress-nav__number">02</span>
+              <span class="progress-nav__label">Beginner</span>
+            </a>
+            <a href="advanced.html" class="progress-nav__item">
+              <span class="progress-nav__number">03</span>
+              <span class="progress-nav__label">Advanced</span>
+            </a>
+            <a href="pro.html" class="progress-nav__item">
+              <span class="progress-nav__number">04</span>
+              <span class="progress-nav__label">Pro</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--lg" aria-labelledby="cube-parts-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="cube-parts-title" class="section__title">Cube Anatomy</h2>
+          <p class="section__subtitle">Understand the pieces before you turn.</p>
+        </header>
+        <div class="grid grid--3 stagger">
+          <article class="part-card card">
+            <div class="part-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="part-card__title card__title">Centers (6)</h3>
+            <p class="part-card__description card__description">Fixed pieces that define each face color. They never move relative to each other — white is always opposite yellow, red opposite orange, blue opposite green.</p>
+            <span class="part-card__face badge badge--info">U/D/R/L/F/B</span>
+          </article>
+
+          <article class="part-card card">
+            <div class="part-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="part-card__title card__title">Edges (12)</h3>
+            <p class="part-card__description card__description">Two-colored pieces between centers. 12 total. Each belongs to exactly two faces (e.g., white-red edge). Orientation matters — flipped edges are unsolved.</p>
+            <span class="part-card__face badge badge--easy">UF, UR, UB, UL, DF, DR, DB, DL, FR, FL, BR, BL</span>
+          </article>
+
+          <article class="part-card card">
+            <div class="part-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.5" fill="currentColor"/>
+                <path d="M12 2L2 7" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 2L22 7" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3 class="part-card__title card__title">Corners (8)</h3>
+            <p class="part-card__description card__description">Three-colored pieces at cube corners. 8 total. Each belongs to three faces (e.g., white-red-blue). Twisted corners are unsolved — orientation is key.</p>
+            <span class="part-card__face badge badge--hard">URF, UFL, ULB, UBR, DFR, DLF, DBL, DRB</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--lg section--alt" aria-labelledby="interactive-cube-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="interactive-cube-title" class="section__title">Interactive Cube</h2>
+          <p class="section__subtitle">Turn faces, explore the cube, practice notation. Click face buttons or drag the cube.</p>
+        </header>
+        <div class="cube-scene-wrapper">
+          <div class="cube-scene">
+            <div class="cube-scene__canvas" role="region" aria-label="Interactive 3D Rubik's Cube" tabindex="0">
+              <canvas id="learn-cube-canvas" class="cube-canvas" data-interactive-cube aria-hidden="true"></canvas>
+              <div class="cube-scene__hint">
+                <kbd class="kbd">Drag</kbd> rotate
+                <kbd class="kbd">Scroll</kbd> zoom
+              </div>
+            </div>
+          </div>
+
+          <div class="cube-controls" role="group" aria-label="Face turn controls">
+            <button type="button" class="cube-btn cube-btn--u" data-move="U" aria-label="U — Up face clockwise">
+              <span class="cube-btn__face">U</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--u" data-move="U'" aria-label="U' — Up face counter-clockwise">
+              <span class="cube-btn__face">U'</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--r" data-move="R" aria-label="R — Right face clockwise">
+              <span class="cube-btn__face">R</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--r" data-move="R'" aria-label="R' — Right face counter-clockwise">
+              <span class="cube-btn__face">R'</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--f" data-move="F" aria-label="F — Front face clockwise">
+              <span class="cube-btn__face">F</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--f" data-move="F'" aria-label="F' — Front face counter-clockwise">
+              <span class="cube-btn__face">F'</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--l" data-move="L" aria-label="L — Left face clockwise">
+              <span class="cube-btn__face">L</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--l" data-move="L'" aria-label="L' — Left face counter-clockwise">
+              <span class="cube-btn__face">L'</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--b" data-move="B" aria-label="B — Back face clockwise">
+              <span class="cube-btn__face">B</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--b" data-move="B'" aria-label="B' — Back face counter-clockwise">
+              <span class="cube-btn__face">B'</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--d" data-move="D" aria-label="D — Down face clockwise">
+              <span class="cube-btn__face">D</span>
+            </button>
+            <button type="button" class="cube-btn cube-btn--d" data-move="D'" aria-label="D' — Down face counter-clockwise">
+              <span class="cube-btn__face">D'</span>
+            </button>
+          </div>
+
+          <div class="cube-controls cube-controls--rotation" role="group" aria-label="Whole-cube rotation controls (x / y / z)">
+            <button type="button" class="cube-btn cube-btn--rot" data-rotate="x" aria-label="x — rotate entire cube around R/L axis"><span class="cube-btn__face">x</span></button>
+            <button type="button" class="cube-btn cube-btn--rot" data-rotate="y" aria-label="y — rotate entire cube around U/D axis"><span class="cube-btn__face">y</span></button>
+            <button type="button" class="cube-btn cube-btn--rot" data-rotate="z" aria-label="z — rotate entire cube around F/B axis"><span class="cube-btn__face">z</span></button>
+          </div>
+
+          <div class="cube-controls__actions flex gap-2 cube-scene__actions">
+            <button type="button" class="btn btn--outline btn--sm" id="scrambleBtn" data-action="scramble" aria-label="Scramble cube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
+                <path d="M21 3a9 9 0 0 1 0 18M3 21a9 9 0 0 1 0-18M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+              Scramble
+            </button>
+            <button type="button" class="btn btn--primary btn--sm" id="resetBtn" data-action="reset" aria-label="Reset cube to solved">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+              </svg>
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--lg" aria-labelledby="notation-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="notation-title" class="section__title">Standard Notation</h2>
+          <p class="section__subtitle">Singmaster notation — the universal language of cubing.</p>
+        </header>
+
+        <div class="notation-grid stagger">
+          <div class="notation-group card">
+            <h3 class="notation-group__title">Face Turns</h3>
+            <div class="notation-table">
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation">U</span>
+                </div>
+                <div class="notation-cell">Up face (white) clockwise 90°</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation">U'</span>
+                </div>
+                <div class="notation-cell">Up face counter-clockwise 90°</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation">U2</span>
+                </div>
+                <div class="notation-cell">Up face 180° (direction irrelevant)</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation">D</span>
+                </div>
+                <div class="notation-cell">Down face (yellow) clockwise 90°</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation">R</span>
+                </div>
+                <div class="notation-cell">Right face (red) clockwise 90°</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation">L</span>
+                </div>
+                <div class="notation-cell">Left face (orange) clockwise 90°</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation">F</span>
+                </div>
+                <div class="notation-cell">Front face (green) clockwise 90°</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation">B</span>
+                </div>
+                <div class="notation-cell">Back face (blue) clockwise 90°</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="notation-group card">
+            <h3 class="notation-group__title">Wide & Slice Moves</h3>
+            <div class="notation-table">
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation cube-notation--wide">r</span>
+                </div>
+                <div class="notation-cell">Wide R — Right two layers together (lowercase on 3x3)</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation cube-notation--wide">l</span>
+                </div>
+                <div class="notation-cell">Wide L — Left two layers together (lowercase on 3x3)</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation cube-notation--wide">u</span>
+                </div>
+                <div class="notation-cell">Wide U — Up two layers together (lowercase on 3x3)</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation cube-notation--slice">M</span>
+                </div>
+                <div class="notation-cell">Middle slice (between L/R) — follows L</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation cube-notation--slice">E</span>
+                </div>
+                <div class="notation-cell">Equatorial slice (between U/D) — follows D</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation cube-notation--slice">S</span>
+                </div>
+                <div class="notation-cell">Standing slice (between F/B) — follows F</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="notation-group card">
+            <h3 class="notation-group__title">Cube Rotations</h3>
+            <div class="notation-table">
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation cube-notation--rotation">x</span>
+                </div>
+                <div class="notation-cell">Rotate whole cube on R axis (like R)</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation cube-notation--rotation">y</span>
+                </div>
+                <div class="notation-cell">Rotate whole cube on U axis (like U)</div>
+              </div>
+              <div class="notation-row">
+                <div class="notation-cell notation-cell--move">
+                  <span class="cube-notation cube-notation--rotation">z</span>
+                </div>
+                <div class="notation-cell">Rotate whole cube on F axis (like F)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notation-key mt-8 card">
+          <h3 class="notation-group__title">Notation Key</h3>
+          <div class="key-grid">
+            <div class="key-item">
+              <span class="key-item__symbol cube-notation">R</span>
+              <span class="key-item__desc">Clockwise 90°</span>
+            </div>
+            <div class="key-item">
+              <span class="key-item__symbol cube-notation">R'</span>
+              <span class="key-item__desc">Counter-clockwise 90°</span>
+            </div>
+            <div class="key-item">
+              <span class="key-item__symbol cube-notation">R2</span>
+              <span class="key-item__desc">180° turn</span>
+            </div>
+            <div class="key-item">
+              <span class="key-item__symbol cube-notation cube-notation--wide">r</span>
+              <span class="key-item__desc">Wide move — 2 layers (lowercase on 3x3; "Rw" is 4x4 notation)</span>
+            </div>
+            <div class="key-item">
+              <span class="key-item__symbol cube-notation cube-notation--slice">M</span>
+              <span class="key-item__desc">Slice move (inner layer)</span>
+            </div>
+            <div class="key-item">
+              <span class="key-item__symbol cube-notation cube-notation--rotation">x</span>
+              <span class="key-item__desc">Whole cube rotation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--lg section--alt" aria-labelledby="practice-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="practice-title" class="section__title">Practice Drills</h2>
+          <p class="section__subtitle">Build muscle memory with guided exercises.</p>
+        </header>
+        <div class="grid grid--2 stagger">
+          <article class="drill-card card">
+            <h3 class="drill-card__title card__title">Face Recognition</h3>
+            <p class="drill-card__description card__description">Identify each face by center color. Practice U, R, F, L, B, D turns until automatic.</p>
+            <div class="drill-card__algo">
+              <span class="cube-notation">U R U' R'</span>
+            </div>
+            <button type="button" class="btn btn--outline btn--sm drill-card__btn" data-algo="U R U' R'">Try on Cube</button>
+          </article>
+
+          <article class="drill-card card">
+            <h3 class="drill-card__title card__title">Sexy Move</h3>
+            <p class="drill-card__description card__description">The fundamental 4-move trigger. Returns cube to original state after 6 repetitions.</p>
+            <div class="drill-card__algo">
+              <span class="cube-notation">R U R' U'</span>
+            </div>
+            <button type="button" class="btn btn--primary btn--sm drill-card__btn" data-algo="R U R' U'">Play on Cube</button>
+          </article>
+
+          <article class="drill-card card">
+            <h3 class="drill-card__title card__title">Sledgehammer</h3>
+            <p class="drill-card__description card__description">Mirror of sexy move. Essential for F2L and many OLL/PLL algorithms.</p>
+            <div class="drill-card__algo">
+              <span class="cube-notation">R' F R F'</span>
+            </div>
+            <button type="button" class="btn btn--outline btn--sm drill-card__btn" data-algo="R' F R F'">Try on Cube</button>
+          </article>
+
+          <article class="drill-card card">
+            <h3 class="drill-card__title card__title">Four-Spot Pattern</h3>
+            <p class="drill-card__description card__description">Classic beginner pattern. Visualizes how centers stay fixed while edges/corners move.</p>
+            <div class="drill-card__algo">
+              <span class="cube-notation">M2 E2 S2</span>
+            </div>
+            <button type="button" class="btn btn--outline btn--sm drill-card__btn" data-algo="M2 E2 S2">Try on Cube</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta section--lg section--alt" aria-labelledby="next-cta-title">
+      <div class="container">
+        <div class="cta-card card">
+          <div class="cta-card__content">
+            <h2 id="next-cta-title" class="cta-card__title">Ready to Solve?</h2>
+            <p class="cta-card__description">You know the pieces and the notation. Now learn the 6-step beginner method — your first complete solve awaits.</p>
+            <a href="beginner.html" class="btn btn--primary btn--lg">Start Beginner Method</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo" aria-label="Cubit — Home">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" width="32" height="32">
+              <rect x="4" y="4" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 12h24M4 20h24M12 4v24M20 4v24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>Cubit</span>
+          </a>
+          <p class="footer__tagline">Interactive Rubik's Cube learning for every level.</p>
+        </div>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <div class="footer__nav-group">
+            <h4 class="footer__nav-title caption">Learn</h4>
+            <ul class="footer__nav-list">
+              <li><a href="learn.html" class="footer__nav-link">Cube Parts & Notation</a></li>
+              <li><a href="beginner.html" class="footer__nav-link">Beginner Method</a></li>
+              <li><a href="advanced.html" class="footer__nav-link">Advanced CFOP</a></li>
+              <li><a href="pro.html" class="footer__nav-link">Pro Techniques</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav-group">
+            <h4 class="footer__nav-title caption">Resources</h4>
+            <ul class="footer__nav-list">
+              <li><a href="#" class="footer__nav-link">Algorithm Database</a></li>
+              <li><a href="#" class="footer__nav-link">Practice Timer</a></li>
+              <li><a href="#" class="footer__nav-link">Notation Cheatsheet</a></li>
+              <li><a href="#" class="footer__nav-link">FAQ</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2025 Cubit. Built for cubers, by cubers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/learn-cube.js"></script>
+  <script type="module" src="js/theme.js"></script>
+  <script src="js/i18n.js"></script>
+</body>
+</html>
