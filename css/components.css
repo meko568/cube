@@ -1778,6 +1778,20 @@ a.btn--ghost:hover {
   margin-left: auto;
 }
 
+/* The algo-box keeps a dark notation background in BOTH themes, so buttons
+   inside it must always use light text (theme --color-fg goes near-black in
+   light mode and becomes unreadable on it). */
+.algo-box .btn--outline {
+  color: var(--color-paper);
+  border-color: color-mix(in srgb, var(--color-paper) 30%, transparent);
+}
+
+.algo-box .btn--outline:hover,
+.algo-box .btn--outline:focus-visible {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 /* ==========================================================================
    ALGO CANVAS — 3D cube visualization for algorithms
    ========================================================================== */
@@ -2434,4 +2448,168 @@ a.btn--ghost:hover {
   text-align: center;
   font-size: var(--font-size-sm, 0.875rem);
   color: var(--color-text-muted, var(--color-fg-muted));
+}
+
+/* ==========================================================================
+   MOBILE NAV — Burger button + slide-in drawer (< 640px)
+   ========================================================================== */
+
+.navbar__burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--color-fg);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.navbar__burger:hover {
+  background: var(--color-bg-elevated);
+}
+
+.navbar__burger:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@media (min-width: 640px) {
+  .navbar__burger {
+    display: none;
+  }
+}
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal-backdrop);
+}
+
+.mobile-nav[hidden] {
+  display: none;
+}
+
+.mobile-nav__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.mobile-nav.is-open .mobile-nav__backdrop {
+  opacity: 1;
+}
+
+.mobile-nav__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(320px, 85vw);
+  padding: var(--space-5) var(--space-5) var(--space-7);
+  background: var(--color-bg);
+  border-left: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(100%);
+  transition: transform var(--transition-normal);
+  overflow-y: auto;
+}
+
+.mobile-nav.is-open .mobile-nav__panel {
+  transform: translateX(0);
+}
+
+.mobile-nav__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  margin-bottom: var(--space-4);
+}
+
+.mobile-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 1.15rem;
+  color: var(--color-fg);
+  text-decoration: none;
+}
+
+.mobile-nav__brand svg {
+  width: 28px;
+  height: 28px;
+  color: var(--color-accent);
+}
+
+.mobile-nav__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--color-fg-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.mobile-nav__close:hover {
+  color: var(--color-fg);
+  background: var(--color-bg-elevated);
+}
+
+.mobile-nav__close:focus-visible,
+.mobile-nav__link:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-md);
+}
+
+.mobile-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-nav__link {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-ui);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  color: var(--color-fg-muted);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.mobile-nav__link:hover {
+  color: var(--color-fg);
+  background: var(--color-bg-elevated);
+}
+
+.mobile-nav__link[aria-current="page"] {
+  color: var(--color-accent);
+  background: var(--color-bg-elevated);
+}
+
+body.nav-open {
+  overflow: hidden;
 }
