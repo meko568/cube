@@ -1774,8 +1774,14 @@ a.btn--ghost:hover {
   letter-spacing: var(--text-algo-ls);
 }
 
+/* Even gaps between the player controls in every order they appear
+   (advanced/pro: Display·Stop·Speed·Play — beginner: Play·Stop·Speed·Display).
+   The block-end margin also separates rows when buttons wrap on narrow cards. */
+.algo-box__display,
+.algo-box__stop,
+.algo-box__speed,
 .algo-box__play {
-  margin-left: auto;
+  margin: var(--space-2) var(--space-3) var(--space-2) 0;
 }
 
 /* The algo-box keeps a dark notation background in BOTH themes, so buttons
@@ -1790,6 +1796,31 @@ a.btn--ghost:hover {
 .algo-box .btn--outline:focus-visible {
   color: var(--color-accent);
   border-color: var(--color-accent);
+}
+
+.algo-box__speed {
+  padding: 4px 8px;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: var(--weight-medium);
+  color: var(--color-paper);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--color-paper) 30%, transparent);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.algo-box__speed:hover,
+.algo-box__speed:focus-visible {
+  outline: none;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.algo-box__speed option {
+  color: #111111;
+  background: #ffffff;
 }
 
 /* ==========================================================================

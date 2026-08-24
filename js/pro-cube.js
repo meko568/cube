@@ -245,6 +245,33 @@ function addPlayButton(algoBox, getEngine, algoString, shapeType, withDisplay = 
     algoBox.appendChild(displayBtn);
   }
 
+  const stopBtn = document.createElement('button');
+  stopBtn.type = 'button';
+  stopBtn.className = 'algo-box__stop btn btn--outline btn--xs';
+  stopBtn.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+      <rect x="5" y="5" width="14" height="14" rx="2"/>
+    </svg>
+    Stop
+  `;
+  stopBtn.setAttribute('aria-label', `Stop algorithm: ${algoString}`);
+  stopBtn.disabled = true;
+
+  const speedSel = document.createElement('select');
+  speedSel.className = 'algo-box__speed';
+  speedSel.setAttribute('aria-label', `Playback speed: ${algoString}`);
+  [[0.5, '0.5×'], [0.75, '0.75×'], [1, '1×'], [1.5, '1.5×'], [2, '2×']].forEach(([v, label]) => {
+    const opt = document.createElement('option');
+    opt.value = String(v);
+    opt.textContent = label;
+    if (v === 1) opt.selected = true;
+    speedSel.appendChild(opt);
+  });
+  speedSel.addEventListener('change', () => {
+    const engine = getEngine();
+    if (engine && !engine._destroyed) engine.setSpeed(speedSel.value);
+  });
+
   const playBtn = document.createElement('button');
   playBtn.type = 'button';
   playBtn.className = 'algo-box__play btn btn--primary btn--xs';
@@ -256,6 +283,8 @@ function addPlayButton(algoBox, getEngine, algoString, shapeType, withDisplay = 
   `;
   playBtn.setAttribute('aria-label', `Play algorithm: ${algoString}`);
 
+  algoBox.appendChild(stopBtn);
+  algoBox.appendChild(speedSel);
   algoBox.appendChild(playBtn);
 
   let isPlaying = false;
@@ -265,6 +294,7 @@ function addPlayButton(algoBox, getEngine, algoString, shapeType, withDisplay = 
     isPlaying = false;
     playingEngine = null;
     playBtn.disabled = false;
+    stopBtn.disabled = true;
     playBtn.innerHTML = `
       <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
         <path d="M8 5v14l11-7z"/>
@@ -272,6 +302,11 @@ function addPlayButton(algoBox, getEngine, algoString, shapeType, withDisplay = 
       Replay
     `;
   };
+
+  stopBtn.addEventListener('click', () => {
+    if (playingEngine && !playingEngine._destroyed) playingEngine.stop();
+    resetBtnUI();
+  });
 
   playBtn.addEventListener('click', () => {
     // Recover if a previous play's engine was destroyed mid-animation
@@ -283,6 +318,8 @@ function addPlayButton(algoBox, getEngine, algoString, shapeType, withDisplay = 
     if (!engine || engine._destroyed) return; // canvas not on screen yet
     isPlaying = true;
     playingEngine = engine;
+    engine.setSpeed(speedSel.value);
+    stopBtn.disabled = false;
     playBtn.disabled = true;
     playBtn.innerHTML = `
       <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true" class="anim-spin">

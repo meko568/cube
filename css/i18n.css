@@ -5,37 +5,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
 
 /* --------------------------------------------------------------------------
-   Language toggle — matches .theme-toggle styling on Cubit pages
+   Language toggle — icon-only, matches .theme-toggle sizing on Cubit pages
    -------------------------------------------------------------------------- */
 .lang-toggle {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2, 8px);
-  padding: var(--space-2, 8px) var(--space-3, 12px);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   border-radius: var(--radius-full, 9999px);
-  background: var(--color-bg-elevated, transparent);
-  border: 1px solid var(--color-border, currentColor);
+  background: transparent;
+  border: none;
   color: var(--color-fg-muted, inherit);
-  font-family: var(--font-ui, 'IBM Plex Sans', system-ui, sans-serif);
-  font-size: var(--text-sm, 0.875rem);
   cursor: pointer;
-  transition: border-color 0.15s ease-out, color 0.15s ease-out;
+  transition: border-color 0.15s ease-out, color 0.15s ease-out,
+    background 0.15s ease-out;
 }
 
 .lang-toggle:hover {
-  border-color: var(--color-accent, currentColor);
+  background: var(--color-bg-elevated, transparent);
   color: var(--color-accent, inherit);
 }
 
 .lang-toggle svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 
+/* Legacy text label (if present from an older cached build) */
 .lang-toggle__label {
-  white-space: nowrap;
-  line-height: 1;
+  display: none;
 }
 
 /* Floating fallback for pages without a navbar (e.g. login.html) */
@@ -55,8 +56,9 @@
 }
 
 .lang-item .lang-toggle {
-  padding: 4px 14px;
-  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
 }
 
 /* --------------------------------------------------------------------------

@@ -95,14 +95,59 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     playBtn.setAttribute('aria-label', `Play algorithm: ${algo}`);
 
+    const stopBtn = document.createElement('button');
+    stopBtn.type = 'button';
+    stopBtn.className = 'algo-box__stop btn btn--outline btn--xs';
+    stopBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+        <rect x="5" y="5" width="14" height="14" rx="2"/>
+      </svg>
+      Stop
+    `;
+    stopBtn.setAttribute('aria-label', `Stop algorithm: ${algo}`);
+    stopBtn.disabled = true;
+
+    const speedSel = document.createElement('select');
+    speedSel.className = 'algo-box__speed';
+    speedSel.setAttribute('aria-label', `Playback speed: ${algo}`);
+    [[0.5, '0.5×'], [0.75, '0.75×'], [1, '1×'], [1.5, '1.5×'], [2, '2×']].forEach(([v, label]) => {
+      const opt = document.createElement('option');
+      opt.value = String(v);
+      opt.textContent = label;
+      if (v === 1) opt.selected = true;
+      speedSel.appendChild(opt);
+    });
+    speedSel.addEventListener('change', () => engine.setSpeed(speedSel.value));
+
     box.parentElement.insertBefore(playBtn, box.nextSibling);
-    box.parentElement.insertBefore(displayBtn, playBtn.nextSibling);
+    box.parentElement.insertBefore(stopBtn, playBtn.nextSibling);
+    box.parentElement.insertBefore(speedSel, stopBtn.nextSibling);
+    box.parentElement.insertBefore(displayBtn, speedSel.nextSibling);
 
     let isPlaying = false;
+
+    const resetBtnUI = () => {
+      isPlaying = false;
+      playBtn.disabled = false;
+      stopBtn.disabled = true;
+      playBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        Replay
+      `;
+    };
+
+    stopBtn.addEventListener('click', () => {
+      engine.stop();
+      resetBtnUI();
+    });
 
     playBtn.addEventListener('click', () => {
       if (isPlaying) return;
       isPlaying = true;
+      engine.setSpeed(speedSel.value);
+      stopBtn.disabled = false;
       playBtn.disabled = true;
       playBtn.innerHTML = `
         <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true" class="anim-spin">
@@ -117,14 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         playAlgorithm(engine, algo, () => {
-          isPlaying = false;
-          playBtn.disabled = false;
-          playBtn.innerHTML = `
-            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-            Replay
-          `;
+          resetBtnUI();
         });
       }, 60);
     });

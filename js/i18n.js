@@ -1204,7 +1204,7 @@
   /* ============================ Toggle UI ============================ */
 
   var GLOBE_SVG =
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" width="16" height="16">' +
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" width="20" height="20">' +
     '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/>' +
     '</svg>';
 
@@ -1214,9 +1214,12 @@
 
   function updateToggleLabel(btn) {
     var ar = currentLang() === 'ar';
-    var label = btn.querySelector('.lang-toggle__label');
-    if (label) label.textContent = ar ? 'English' : 'عربي';
+    var hint = ar ? 'التبديل إلى الإنجليزية' : 'Switch to Arabic';
+    btn.setAttribute('aria-label', hint);
+    btn.setAttribute('title', hint);
     btn.setAttribute('aria-pressed', ar ? 'true' : 'false');
+    var label = btn.querySelector('.lang-toggle__label');
+    if (label) label.hidden = true;
   }
 
   function setLang(lang) {
@@ -1236,8 +1239,7 @@
     btn.type = 'button';
     btn.id = 'langToggle';
     btn.className = 'lang-toggle';
-    btn.setAttribute('aria-label', 'Switch language');
-    btn.innerHTML = GLOBE_SVG + '<span class="lang-toggle__label">عربي</span>';
+    btn.innerHTML = GLOBE_SVG;
     btn.addEventListener('click', function () {
       setLang(currentLang() === 'ar' ? 'en' : 'ar');
     });

@@ -126,6 +126,9 @@ export class CubeEngine {
     this.cubies = [];
     this.isAnimating = false;
     this.rotationQueue = [];
+    this.speedMultiplier = 1;
+    this._activeTween = null;
+    this._activeSeg = null;
 
     this._initScene();
     this._buildCube();
@@ -476,6 +479,43 @@ export class CubeEngine {
     this._processQueue();
   }
 
+  /**
+   * Playback speed multiplier (0.5×–2×). Affects every subsequent move
+   * tween, including one already mid-queue (each tween reads it at start).
+   * @param {number} mult e.g. 0.5 | 1 | 2
+   */
+  setSpeed(mult) {
+    const n = Number(mult);
+    this.speedMultiplier = n >= 0.25 && n <= 4 ? n : 1;
+  }
+
+  /**
+   * Abort playback: drop all queued moves and finish the currently animating
+   * segment instantly at its target angle (cube never rests half-turned).
+   * @returns {boolean} true if a running animation was interrupted
+   */
+  stop() {
+    this.rotationQueue.length = 0;
+    const tween = this._activeTween;
+    if (!tween) return false;
+
+    tween.kill();
+    const seg = this._activeSeg;
+    if (seg && seg.pivot) {
+      seg.pivot.rotation[seg.axisVec] = seg.angle;
+      seg.pivot.updateMatrixWorld(true);
+      seg.selected.forEach((c) => {
+        this.cubeGroup.attach(c);
+        this._snapCubie(c);
+      });
+      this.cubeGroup.remove(seg.pivot);
+    }
+    this._activeTween = null;
+    this._activeSeg = null;
+    this.isAnimating = false;
+    return true;
+  }
+
   _processQueue() {
     if (this.isAnimating || this.rotationQueue.length === 0) return;
     const { move, onComplete } = this.rotationQueue.shift();
@@ -516,9 +556,9 @@ export class CubeEngine {
     this.cubeGroup.add(pivot);
     selected.forEach((c) => pivot.attach(c));
 
-    gsap.to(pivot.rotation, {
+    const tween = gsap.to(pivot.rotation, {
       [seg.axisVec]: seg.angle,
-      duration: this.opts.rotationDuration,
+      duration: this.opts.rotationDuration / (this.speedMultiplier || 1),
       ease: 'power2.inOut',
       onComplete: () => {
         // NOTE: keep pivot rotation at `angle` while re-attaching — attach()
@@ -530,9 +570,13 @@ export class CubeEngine {
         });
         this.cubeGroup.remove(pivot);
         this.isAnimating = false;
+        this._activeTween = null;
+        this._activeSeg = null;
         this._animateSegments(segs, i + 1, onComplete);
       },
     });
+    this._activeTween = tween;
+    this._activeSeg = { pivot, selected, axisVec: seg.axisVec, angle: seg.angle };
   }
 
   /**
