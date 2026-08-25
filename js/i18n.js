@@ -621,7 +621,7 @@
     'Replay': 'إعادة التشغيل',
     'Playing...': 'قيد التشغيل...',
     'easy': 'سهل',
-    'medium': 'متوسط',
+    'medium': 'متوسط',(
     'hard': 'صعب',
     'Added To cart': 'أُضيف إلى السلة',
     'Added to cart': 'أُضيف إلى السلة',
@@ -731,7 +731,7 @@
 
     /* ---------- Finger tricks / OH / BLD names ---------- */
     'Double Flick (R U)': 'النقرة المزدوجة (R U)',
-    'Reverse Sexy': 'السكسية العكسية',
+    'Reverse Sexy': 'السحريه العكسية',
     'Air Jeff / Pi Trigger': 'إير جيف / زناد باي',
     'T Perm Finger Trick': 'حيلة تصفية T',
     'J Perm (Ja) Flow': 'انسجام تصفية J (Ja)',
